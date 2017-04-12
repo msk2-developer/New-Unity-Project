@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Information.unity
+- path: Assets/PedometerTitleScene.unity
   isLoaded: 1
   isActive: 1
