@@ -50,7 +50,6 @@
      <Compile Include="Assets\CameraSetting.cs" />
      <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\SampleCCD.cs" />
-     <Compile Include="Assets\SampleCCDEditer.cs" />
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>

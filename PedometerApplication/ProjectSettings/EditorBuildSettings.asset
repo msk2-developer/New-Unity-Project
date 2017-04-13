@@ -18,5 +18,5 @@ EditorBuildSettings:
     path: Assets/MainView.unity
     guid: f0142b3830281435ea42c9761fc26495
   - enabled: 0
-    path: Assets/PedometerView.unity
+    path: 
     guid: fc2b950bc6e424ab6985ab4929546829

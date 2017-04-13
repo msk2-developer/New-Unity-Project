@@ -22,9 +22,9 @@ public class ButtonScript : MonoBehaviour {
 		SceneManager.LoadScene("MainView");
 	}
 	//歩数計画面
-	public void PedometerScene() {
-		Debug.Log("歩数計ボタンが押下されました。");
-		SceneManager.LoadScene ("PedometerView");
+	public void InformationScene() {
+		Debug.Log("インフォメーションが押下されました。");
+		SceneManager.LoadScene ("Information");
 	}
 	//ショップ画面
 	public void ShopScene() {
@@ -35,5 +35,10 @@ public class ButtonScript : MonoBehaviour {
 	public void CharacterScene() {
 		Debug.Log("キャラクター詳細ボタンが押下されました。");
 		SceneManager.LoadScene ("CharacterDetailsView");
+	}
+
+	public void ShopWeponButton() {
+		Debug.Log ("ショップの武器を表示");
+		//GameObject.Find ("WeponShopWindow").GetComponent<Rigidbody> ().setActive = true;
 	}
 }
