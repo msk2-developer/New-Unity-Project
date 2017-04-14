@@ -7,7 +7,7 @@ PlayerSettings:
   productGUID: 089155b7858c54b2b804a4f7889d85ec
   AndroidProfiler: 0
   defaultScreenOrientation: 0
-  targetDevice: 2
+  targetDevice: 0
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
@@ -501,7 +501,8 @@ PlayerSettings:
     20: 
     22: 
   platformArchitecture: {}
-  scriptingBackend: {}
+  scriptingBackend:
+    iOS: 0
   incrementalIl2cppBuild: {}
   additionalIl2CppArgs: 
   apiCompatibilityLevelPerPlatform: {}

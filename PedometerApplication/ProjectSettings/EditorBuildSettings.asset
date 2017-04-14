@@ -6,17 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/PedometerTitleScene.unity
+    path: Assets/GameScene/PedometerTitleScene.unity
     guid: 16cde0968c23749d3b35f55bff63dd2c
   - enabled: 1
-    path: Assets/ShopView.unity
+    path: Assets/GameScene/ShopView.unity
     guid: e566b96cfac7f420f8eeb1f47d66e56b
   - enabled: 1
-    path: Assets/CharacterDetailsView.unity
+    path: Assets/GameScene/CharacterDetailsView.unity
     guid: 5a64647c1c6774e42b99766c2a74a602
   - enabled: 1
-    path: Assets/MainView.unity
+    path: Assets/GameScene/MainView.unity
     guid: f0142b3830281435ea42c9761fc26495
+  - enabled: 1
+    path: Assets/GameScene/Information.unity
+    guid: 87a3322671fe1425c845aac04b41a338
   - enabled: 0
     path: 
     guid: fc2b950bc6e424ab6985ab4929546829
