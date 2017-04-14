@@ -48,7 +48,10 @@
   <ItemGroup>
      <Compile Include="Assets\ButtonScript.cs" />
      <Compile Include="Assets\CameraSetting.cs" />
+     <Compile Include="Assets\Help.cs" />
+     <Compile Include="Assets\MainView.cs" />
      <Compile Include="Assets\NewBehaviourScript.cs" />
+     <Compile Include="Assets\PetButton.cs" />
      <Compile Include="Assets\SampleCCD.cs" />
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>

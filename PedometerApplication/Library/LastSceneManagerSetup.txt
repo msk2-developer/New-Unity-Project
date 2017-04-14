@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< Updated upstream
 - path: Assets/ShopView.unity
+=======
+- path: Assets/MainView.unity
+>>>>>>> Stashed changes
   isLoaded: 1
   isActive: 1
