@@ -1,4 +1,12 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/GameScene/Information.unity
+=======
+<<<<<<< Updated upstream
+- path: Assets/ShopView.unity
+=======
+- path: Assets/MainView.unity
+>>>>>>> Stashed changes
+>>>>>>> origin/master
   isLoaded: 1
   isActive: 1
