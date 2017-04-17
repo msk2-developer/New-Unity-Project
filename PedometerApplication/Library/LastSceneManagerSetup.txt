@@ -1,16 +1,7 @@
 sceneSetups:
-<<<<<<< Updated upstream
-<<<<<<< HEAD
 - path: Assets/GameScene/Information.unity
-=======
-<<<<<<< Updated upstream
-- path: Assets/ShopView.unity
-=======
+- path: Assets/GameScene/ShopView.unity
 - path: Assets/MainView.unity
->>>>>>> Stashed changes
->>>>>>> origin/master
-=======
 - path: Assets/CharacterDetailsView.unity
->>>>>>> Stashed changes
   isLoaded: 1
   isActive: 1
