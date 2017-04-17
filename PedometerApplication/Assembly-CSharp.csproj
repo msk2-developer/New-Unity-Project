@@ -46,6 +46,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
+=======
+     <Compile Include="Assets\ButtonScript.cs" />
+     <Compile Include="Assets\CameraSetting.cs" />
+     <Compile Include="Assets\CharacterDetail.cs" />
+>>>>>>> Stashed changes
      <Compile Include="Assets\Help.cs" />
      <Compile Include="Assets\MainView.cs" />
      <Compile Include="Assets\PetButton.cs" />

@@ -7,7 +7,7 @@ public class Help : MonoBehaviour {
 	public Transform help;
 	GameObject helpClone;
 
-	public void PelpButtonTap () {
+	public void HelpButtonTap () {
 		if (helpClone == null) {
 			Instantiate (help);
 			helpClone = GameObject.Find ("Help(Clone)");
