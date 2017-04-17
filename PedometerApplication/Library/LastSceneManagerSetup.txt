@@ -1,7 +1,4 @@
 sceneSetups:
-- path: Assets/GameScene/Information.unity
-- path: Assets/GameScene/ShopView.unity
-- path: Assets/MainView.unity
-- path: Assets/CharacterDetailsView.unity
-  isLoaded: 1
-  isActive: 1
+- path: Assets/GameScene/MainView.unity
+  isLoaded: 0
+  isActive: 0
