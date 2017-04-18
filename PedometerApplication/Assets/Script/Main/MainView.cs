@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class MainView : MonoBehaviour {
 
-	GameObject petButton;
+	private GameObject petButton;
+	private GameObject petPanel;
 
 
 	// Use this for initialization
 	void Start () {
 		// ボタン等の設定
 		petButton = GameObject.Find("PetButton");
-//		petButton.SetActive (false);
+		petPanel = GameObject.Find("PetPanel");
+		petPanel.SetActive (false);
 	}
 	
 	// Update is called once per frame
