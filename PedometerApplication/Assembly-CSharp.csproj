@@ -49,6 +49,7 @@
      <Compile Include="Assets\Script\Common\CommonButtonScript.cs" />
      <Compile Include="Assets\Script\Common\Help.cs" />
      <Compile Include="Assets\Script\Info\InfoButtonScript.cs" />
+     <Compile Include="Assets\Script\Main\BattleButton.cs" />
      <Compile Include="Assets\Script\Main\MainView.cs" />
      <Compile Include="Assets\Script\Main\PetButton.cs" />
      <Compile Include="Assets\Script\Shop\ItemsBuy.cs" />
