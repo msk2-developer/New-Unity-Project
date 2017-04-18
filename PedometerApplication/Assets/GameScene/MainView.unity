@@ -482,7 +482,7 @@ RectTransform:
   - {fileID: 1170174168}
   - {fileID: 328348371}
   m_Father: {fileID: 343992963}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -745,7 +745,7 @@ RectTransform:
   m_GameObject: {fileID: 328348370}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1972033183}
   m_Father: {fileID: 302074855}
@@ -764,9 +764,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 328348370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f29e841dd7e234662a3bcc56d7b792ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 5682337ce506543edae8d46f3a8a5103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleButtonText: {fileID: 1430359632}
+  battleEndTime: 0
 --- !u!114 &328348373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,7 +809,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 328348372}
-        m_MethodName: OkButtonTap
+        m_MethodName: CancelButtonTap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -947,10 +949,10 @@ RectTransform:
   - {fileID: 307410882}
   - {fileID: 962481013}
   - {fileID: 82178032}
-  - {fileID: 1900981416}
   - {fileID: 1461882606}
-  - {fileID: 302074855}
   - {fileID: 1057811543}
+  - {fileID: 1900981416}
+  - {fileID: 302074855}
   - {fileID: 2069762260}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1215,7 +1217,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 5, y: -5}
-  m_SizeDelta: {x: -10, y: -205}
+  m_SizeDelta: {x: -10, y: -225}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &747024235
 MonoBehaviour:
@@ -1578,7 +1580,7 @@ RectTransform:
   - {fileID: 320784589}
   - {fileID: 1644960420}
   m_Father: {fileID: 343992963}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1788,7 +1790,7 @@ RectTransform:
   m_GameObject: {fileID: 1170174167}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1551012611}
   m_Father: {fileID: 302074855}
@@ -1796,8 +1798,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 27, y: 86.99999}
-  m_SizeDelta: {x: 129, y: 136}
+  m_AnchoredPosition: {x: 27, y: 75}
+  m_SizeDelta: {x: 129, y: 124}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1170174169
 MonoBehaviour:
@@ -1807,9 +1809,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1170174167}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f29e841dd7e234662a3bcc56d7b792ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 5682337ce506543edae8d46f3a8a5103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleButtonText: {fileID: 1430359632}
+  battleEndTime: 0
 --- !u!114 &1170174170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1850,7 +1854,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1170174169}
-        m_MethodName: OkButtonTap
+        m_MethodName: CpuBattleButtonTap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2301,7 +2305,7 @@ GameObject:
   - component: {fileID: 1430359633}
   - component: {fileID: 1430359632}
   m_Layer: 5
-  m_Name: Text
+  m_Name: BattleButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2395,7 +2399,7 @@ RectTransform:
   m_Children:
   - {fileID: 1430359631}
   m_Father: {fileID: 343992963}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2498,6 +2502,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5682337ce506543edae8d46f3a8a5103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleButtonText: {fileID: 1430359632}
+  battleEndTime: 0
 --- !u!1 &1551012610
 GameObject:
   m_ObjectHideFlags: 0
@@ -2877,9 +2883,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -155, y: 87}
-  m_SizeDelta: {x: 129, y: 136}
-  m_Pivot: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -90.500015, y: 12.999977}
+  m_SizeDelta: {x: 129, y: 124}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1680136814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2888,9 +2894,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1680136812}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f29e841dd7e234662a3bcc56d7b792ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 5682337ce506543edae8d46f3a8a5103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleButtonText: {fileID: 1430359632}
+  battleEndTime: 0
 --- !u!114 &1680136815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2931,7 +2939,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1680136814}
-        m_MethodName: OkButtonTap
+        m_MethodName: NpcBattleButtonTap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3281,7 +3289,7 @@ RectTransform:
   - {fileID: 1018894985}
   - {fileID: 51287921}
   m_Father: {fileID: 343992963}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
