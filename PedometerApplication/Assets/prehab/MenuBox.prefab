@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 222693798686052686}
   - component: {fileID: 114705428751615266}
   - component: {fileID: 114350966694500856}
-  - component: {fileID: 114979788771741664}
   m_Layer: 5
   m_Name: Shop
   m_TagString: Untagged
@@ -58,7 +57,6 @@ GameObject:
   - component: {fileID: 222198276395192922}
   - component: {fileID: 114101942446595494}
   - component: {fileID: 114504102781716304}
-  - component: {fileID: 114827349917414888}
   m_Layer: 5
   m_Name: etc
   m_TagString: Untagged
@@ -94,7 +92,6 @@ GameObject:
   - component: {fileID: 222343321225046728}
   - component: {fileID: 114524869840096820}
   - component: {fileID: 114701248084032514}
-  - component: {fileID: 114032165852158678}
   m_Layer: 5
   m_Name: Character
   m_TagString: Untagged
@@ -110,6 +107,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4148142198616934}
+  - component: {fileID: 114383957376554728}
   m_Layer: 0
   m_Name: MenuBox
   m_TagString: Untagged
@@ -145,7 +143,6 @@ GameObject:
   - component: {fileID: 222331033558637412}
   - component: {fileID: 114415322415014046}
   - component: {fileID: 114362867296822272}
-  - component: {fileID: 114103574429133394}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -187,17 +184,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114032165852158678
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1335627221494278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee9b37d21b13b498c8096967058fc6ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114049438130120616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -258,17 +244,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114103574429133394
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1902878073695462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee9b37d21b13b498c8096967058fc6ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114350966694500856
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -308,7 +283,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114979788771741664}
+      - m_Target: {fileID: 114383957376554728}
         m_MethodName: ShopScene
         m_Mode: 1
         m_Arguments:
@@ -360,7 +335,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114103574429133394}
+      - m_Target: {fileID: 114383957376554728}
         m_MethodName: MainMenuScene
         m_Mode: 1
         m_Arguments:
@@ -370,9 +345,20 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114383957376554728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1743732120981728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c91f81c3b38494e35aabeb88f56a9c59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114395778116428960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -505,7 +491,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114827349917414888}
+      - m_Target: {fileID: 114383957376554728}
         m_MethodName: InformationScene
         m_Mode: 1
         m_Arguments:
@@ -617,7 +603,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114032165852158678}
+      - m_Target: {fileID: 114383957376554728}
         m_MethodName: CharacterScene
         m_Mode: 1
         m_Arguments:
@@ -657,28 +643,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114827349917414888
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1186852458406308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee9b37d21b13b498c8096967058fc6ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114979788771741664
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1134430080982914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee9b37d21b13b498c8096967058fc6ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &222198276395192922
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -20,9 +20,12 @@ public class Points : MonoBehaviour {
 
 	public void ResultPoint(int buypoint) {
 
-		this.points -= buypoint;
-		BuyReslut ();
-
+		if (this.points <= 0) {
+			Debug.Log ("購入できませんでした。");
+		} else {
+			this.points -= buypoint;
+			BuyReslut ();
+		}
 	}
 
 	public void BuyReslut() {

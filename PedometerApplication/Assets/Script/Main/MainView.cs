@@ -8,12 +8,13 @@ public class MainView : MonoBehaviour {
 	private GameObject petPanel;
 	private GameObject battlePanel;
 
-
 	// Use this for initialization
 	void Start () {
 		// ボタン等の設定
+
 //		petButton = GameObject.Find("PetButton");
 		petPanel = GameObject.Find("PetPanel");
+
 		petPanel.SetActive (false);
 		battlePanel = GameObject.Find("BattlePanel");
 		battlePanel.SetActive (false);

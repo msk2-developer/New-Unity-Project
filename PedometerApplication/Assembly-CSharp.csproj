@@ -52,8 +52,10 @@
      <Compile Include="Assets\Script\Main\BattleButton.cs" />
      <Compile Include="Assets\Script\Main\MainView.cs" />
      <Compile Include="Assets\Script\Main\PetButton.cs" />
+     <Compile Include="Assets\Script\Shop\HoldPress.cs" />
      <Compile Include="Assets\Script\Shop\ItemsBuy.cs" />
      <Compile Include="Assets\Script\Shop\Points.cs" />
+     <Compile Include="Assets\Script\Shop\SetShop.cs" />
      <Compile Include="Assets\Script\Shop\SheldShop.cs" />
      <Compile Include="Assets\Script\Shop\ShopButtonScript.cs" />
      <Compile Include="Assets\Script\Shop\WeponShop.cs" />

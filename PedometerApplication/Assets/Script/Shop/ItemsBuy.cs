@@ -19,19 +19,16 @@ public class ItemsBuy : MonoBehaviour {
 	// クリックされた
 	public void OnMouseUpAsButton()
 	{
-		Debug.Log ("イベント実行");
 		confirmAllHoshiDelete();
 	}
 
 	// ダイアログを表示
 	public void confirmAllHoshiDelete()
 	{
-		Debug.Log ("お祭り開演");
 		// Canvas を有効にする
 		if (dialogCanvas != null)
 		{
 			dialogCanvas.enabled = true;
-			Debug.Log ("キャンバス開始");
 		}
 	}
 
@@ -51,4 +48,7 @@ public class ItemsBuy : MonoBehaviour {
 		dialogCanvas.enabled = false;
 	}
 
+	public void Weapon1() {
+		
+	}
 }
