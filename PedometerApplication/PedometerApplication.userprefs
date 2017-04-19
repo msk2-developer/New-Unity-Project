@@ -1,16 +1,29 @@
-﻿<Properties StartupItem="Assembly-CSharp.csproj">
+﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Main/MainView.cs">
     <Files>
+<<<<<<< Updated upstream
       <File FileName="Assets/Script/charaDetail/CharacterTap.cs" Line="1" Column="1" />
       <File FileName="Assets/Script/charaDetail/CharacterDetail.cs" Line="3" Column="19" />
       <File FileName="Assets/Script/Main/PetButton.cs" Line="18" Column="31" />
       <File FileName="Assets/Script/Main/MainView.cs" Line="15" Column="5" />
       <File FileName="Assets/Script/Main/BattleButton.cs" Line="83" Column="17" />
+=======
+      <File FileName="Assets/Script/Shop/ShopButtonScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Shop/Points.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Shop/SheldShop.cs" Line="7" Column="1" />
+      <File FileName="Assets/Script/Shop/WeponShop.cs" Line="10" Column="1" />
+      <File FileName="Assets/Script/Shop/HoldPress.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Shop/SetShop.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Main/MainView.cs" Line="14" Column="1" />
+      <File FileName="Assets/Script/Main/PetButton.cs" Line="1" Column="1" />
+>>>>>>> Stashed changes
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/Shared/Unity/PedometerApplication/New Unity Project/PedometerApplication/Assets/Script/Main/MainView.cs" line="20" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
