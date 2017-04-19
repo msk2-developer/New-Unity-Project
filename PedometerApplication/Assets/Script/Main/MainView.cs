@@ -5,8 +5,8 @@ using UnityEngine;
 public class MainView : MonoBehaviour {
 
 //	private GameObject petButton;
-	private GameObject petPanel;
-	private GameObject battlePanel;
+	public GameObject petPanel;
+	public GameObject battlePanel;
 
 	// Use this for initialization
 	void Start () {
@@ -14,10 +14,7 @@ public class MainView : MonoBehaviour {
 
 //		petButton = GameObject.Find("PetButton");
 		petPanel = GameObject.Find("PetPanel");
-
-		petPanel.SetActive (false);
 		battlePanel = GameObject.Find("BattlePanel");
-		battlePanel.SetActive (false);
 	}
 	
 	// Update is called once per frame

@@ -1,23 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-<<<<<<< Updated upstream
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/charaDetail/CharacterTap.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Main/MainView.cs">
     <Files>
-      <File FileName="Assets/Script/charaDetail/CharacterDetail.cs" Line="26" Column="18" />
-      <File FileName="Assets/Image/ActRPGsprites/readme.txt" Line="14" Column="1" />
-      <File FileName="Assets/Script/Main/PetButton.cs" Line="9" Column="1" />
-      <File FileName="Assets/Script/charaDetail/CharacterTap.cs" Line="15" Column="39" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Shop/Points.cs">
-    <Files>
-      <File FileName="Assets/Script/Shop/ShopButtonScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Shop/Points.cs" Line="26" Column="28" />
-      <File FileName="Assets/Script/Shop/ItemsBuy.cs" Line="21" Column="3" />
-      <File FileName="Assets/Script/Shop/SheldShop.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Shop/WeponShop.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Common/CommonButtonScript.cs" Line="8" Column="2" />
-      <File FileName="Assets/Script/charaDetail/CharacterDetail.cs" Line="1" Column="1" />
->>>>>>> Stashed changes
+      <File FileName="Assets/Script/charaDetail/CharacterTap.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/charaDetail/CharacterDetail.cs" Line="3" Column="19" />
+      <File FileName="Assets/Script/Main/PetButton.cs" Line="18" Column="31" />
+      <File FileName="Assets/Script/Main/MainView.cs" Line="15" Column="5" />
+      <File FileName="Assets/Script/Main/BattleButton.cs" Line="83" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
