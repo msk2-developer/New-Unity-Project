@@ -30,7 +30,6 @@ public class HoldPress: MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
 	void Update ()
 	{
-		Debug.Log (nextTime);
 		if (pressed && nextTime < Time.realtimeSinceStartup) {
 			onLongPress.Invoke ();
 			nextTime = Time.time + intervalAction;
