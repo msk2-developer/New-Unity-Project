@@ -7,16 +7,16 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/GameScene/PedometerTitleScene.unity
-    guid: 16cde0968c23749d3b35f55bff63dd2c
+    guid: dc9f36c145e77443d819be4d875ed0c2
   - enabled: 1
     path: Assets/GameScene/MainView.unity
-    guid: a18dc02a815524adcab764cc917a99a1
+    guid: 54e04f87cf87e43d899e2dafe4f2e296
   - enabled: 1
     path: Assets/GameScene/CharacterDetailsView.unity
-    guid: 4861f6196ff4d4d90bffc2a9101281de
+    guid: 5bd6a31ed5dac4be6a55a018684bdc61
   - enabled: 1
     path: Assets/GameScene/ShopView.unity
-    guid: e566b96cfac7f420f8eeb1f47d66e56b
+    guid: d17e6a993445e4b5aa03b6994dc9ab5f
   - enabled: 1
     path: Assets/GameScene/Information.unity
-    guid: 87a3322671fe1425c845aac04b41a338
+    guid: 00000000000000000000000000000000
