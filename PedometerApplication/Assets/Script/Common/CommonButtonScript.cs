@@ -23,7 +23,7 @@ public class CommonButtonScript : MonoBehaviour {
 	//ショップ画面
 	public void ShopScene() {
 		Debug.Log("ショップボタンが押下されました。");
-		SceneManager.LoadScene ("ShopView");
+		SceneManager.LoadScene ("PetShop");
 	}
 	//キャラクター詳細画面
 	public void CharacterScene() {
