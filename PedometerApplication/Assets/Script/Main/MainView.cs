@@ -18,6 +18,8 @@ public class MainView : MonoBehaviour {
 	public float battleEndTime;
 
 	/* キャラの動き関連 */
+	public Transform mainCamera;
+
 	public GameObject charaWalk1;
 	public GameObject charaWalk2;
 	public GameObject charaWalk3;
@@ -100,6 +102,7 @@ public class MainView : MonoBehaviour {
 		pet1AnimationClone = GameObject.Find ("Pet1Animation(Clone)");
 		Canvas canvas = GameObject.FindObjectOfType<Canvas> ();
 		pet1AnimationClone.transform.SetParent (canvas.transform, false);
+		pet1AnimationClone.transform.SetSiblingIndex(1);
 		pet1Walk1 = GameObject.Find("Pet1Walk1");
 		pet1Walk2 = GameObject.Find("Pet1Walk2");
 		pet1Walk3 = GameObject.Find("Pet1Walk3");
@@ -177,9 +180,9 @@ public class MainView : MonoBehaviour {
 
 	// 背景の動き
 	void BackGroundAnimation () {
-		transform.Translate (0.05f, 0, 0);
-		if (transform.position.x > 22f ) {
-			transform.position = new Vector3 (0, 2.2f, -13f);
+		mainCamera.Translate (0.05f, 0, 0);
+		if (mainCamera.position.x > 22f ) {
+			mainCamera.position = new Vector3 (0, 2.2f, -13f);
 		}
 	}
 

@@ -46,12 +46,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\CharaDetail\CharacterDetail.cs" />
+     <Compile Include="Assets\Script\CharaDetail\CharacterTap.cs" />
      <Compile Include="Assets\Script\Common\CommonButtonScript.cs" />
      <Compile Include="Assets\Script\Common\Help.cs" />
      <Compile Include="Assets\Script\Info\InfoButtonScript.cs" />
      <Compile Include="Assets\Script\Main\Battle.cs" />
      <Compile Include="Assets\Script\Main\MainView.cs" />
      <Compile Include="Assets\Script\Main\Pet.cs" />
+     <Compile Include="Assets\Script\PetShop\PetShop.cs" />
      <Compile Include="Assets\Script\Shop\HoldPress.cs" />
      <Compile Include="Assets\Script\Shop\ItemsBuy.cs" />
      <Compile Include="Assets\Script\Shop\Points.cs" />
@@ -59,8 +62,6 @@
      <Compile Include="Assets\Script\Shop\SheldShop.cs" />
      <Compile Include="Assets\Script\Shop\ShopButtonScript.cs" />
      <Compile Include="Assets\Script\Shop\WeponShop.cs" />
-     <Compile Include="Assets\Script\charaDetail\CharacterDetail.cs" />
-     <Compile Include="Assets\Script\charaDetail\CharacterTap.cs" />
      <None Include="Assets\Image\ActRPGsprites\readme.txt" />
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>

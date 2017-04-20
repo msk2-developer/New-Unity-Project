@@ -975,6 +975,7 @@ MonoBehaviour:
   battleButton: {fileID: 0}
   battleButtonText: {fileID: 1430359632}
   battleEndTime: 0
+  mainCamera: {fileID: 756675020}
   charaWalk1: {fileID: 0}
   charaWalk2: {fileID: 0}
   charaWalk3: {fileID: 0}
