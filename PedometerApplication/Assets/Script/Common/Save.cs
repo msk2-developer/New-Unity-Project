@@ -15,7 +15,7 @@ public class Save : MonoBehaviour {
 	public int totalWalkingCount;
 	// 取得ぺット数
 	public int petCount;
-	// Main画面表示ぺット (indexかぺット名を入れておく？)
+	// Main画面表示ぺット (とりあえずぺット名を入れる)
 	public string[] selectPets;
 	// ぺット名
 	public string[] petNames;
@@ -74,6 +74,10 @@ public class Save : MonoBehaviour {
 		this.walking3Images = setArray (this.walking3Images, newWalkingImage3);
 		this.walking4Images = setArray (this.walking4Images, newWalkingImage4);
 		this.petCount += 1;
+		this.selectPets = new string[4];
+		for (int i = 0; i < this.petCount && i < 4; i++) {
+			this.selectPets [i] = this.petNames [i];
+		}
 		PlayerPrefs.SetString("PlayerData", this.GetJsonData());
 	}
 

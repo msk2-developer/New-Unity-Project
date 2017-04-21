@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class PetShop : MonoBehaviour {
 
-	public GameObject pointCount;
-	public Canvas dialogCanvas;
-	public Text petPointCountText;
+	private GameObject pointCount;
+	public Canvas buyCanvas;
+	public Canvas alertCanvas;
+	private Text petPointCountText;
+	private Transform petButton;
 
 	private Save save;
 
@@ -31,14 +33,29 @@ public class PetShop : MonoBehaviour {
 
 	// ぺット商品タップ処理
 	public void BoughtPetButtonTap (Transform button) {
+		petButton = button;
 		// 金額取得
 		petPointCountText = button.FindChild("CostValue").gameObject.GetComponent<Text> ();
+
 		// 購入済の場合、何もしない
 		if (petPointCountText.text.Equals ("購入済")) {
 			return;
+		}
+
+		// 所持ポイント
+		Text pointCountText = pointCount.GetComponent<Text> ();
+		int pointCountInt = int.Parse (pointCountText.text);
+		// ぺット金額
+		int petPointCountInt = int.Parse(petPointCountText.text);
+
+		// 計算
+		pointCountInt -= petPointCountInt;
+		if (pointCountInt < 0) {
+			// 購入不可ダイアログ表示
+			alertCanvas.enabled = true;
 		} else {
 			// 購入確認ダイアログ表示
-			dialogCanvas.enabled = true;
+			buyCanvas.enabled = true;
 		}
 	}
 
@@ -57,17 +74,17 @@ public class PetShop : MonoBehaviour {
 		} else {
 			pointCountText.text = pointCountInt.ToString ();
 			petPointCountText.text = "購入済";
-			save.AddPetData (petPointCountText.transform.parent.FindChild ("PetName").GetComponent<Text> ().text,
-				petPointCountText.transform.parent.FindChild ("PetImage").GetComponent<Image> ().sprite.name,
+			save.AddPetData (petButton.FindChild ("PetName").GetComponent<Text> ().text,
+				petButton.FindChild ("PetImage").GetComponent<Image> ().sprite.name,
 				"en_115", "en_116", "en_117", "en_118");
 		}
 		// Canvas を無効にする。(ダイアログを閉じる)
-		dialogCanvas.enabled = false;
+		buyCanvas.enabled = false;
 	}
 
 	// No ボタンと関連づけたイベントハンドラ関数
-	public void NoButtonTap(){
+	public void NoButtonTap(Canvas canvas){
 		// Canvas を無効にする。(ダイアログを閉じる)
-		dialogCanvas.enabled = false;
+		canvas.enabled = false;
 	}
 }

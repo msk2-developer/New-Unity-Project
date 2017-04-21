@@ -967,16 +967,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4340e7b18ec8c49759eec89d2c68bc2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  petButton: {fileID: 0}
-  petPanel: {fileID: 0}
-  pet1Animation: {fileID: 4154103327041032, guid: 9f7c50befeab94d4890a3f3435660fca,
+  petAnimation: {fileID: 4548593712416224, guid: 9f7c50befeab94d4890a3f3435660fca,
     type: 2}
-  pet1AnimationClone: {fileID: 0}
   mainCamera: {fileID: 756675020}
-  pet1Walk1: {fileID: 0}
-  pet1Walk2: {fileID: 0}
-  pet1Walk3: {fileID: 0}
-  pet1Walk4: {fileID: 0}
 --- !u!1 &413256884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,7 +1392,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4148142198616934, guid: 9b2d8ef65e07548f69e5774d700eddfa, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b2d8ef65e07548f69e5774d700eddfa, type: 2}
