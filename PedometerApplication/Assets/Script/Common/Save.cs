@@ -7,6 +7,8 @@ public class Save : MonoBehaviour {
 
 	// ユーザ名
 	public string userName;
+	// ユーザ名
+	public int userLevel;
 	// 所持ポイント
 	public int pointCount;
 	// 今日の歩数
@@ -52,6 +54,20 @@ public class Save : MonoBehaviour {
 	public void AddUserData(string newUserName){
 		// ユーザ登録
 		this.userName = newUserName;
+		PlayerPrefs.SetString("PlayerData", this.GetJsonData());
+	}
+
+	// レベル情報追加
+	public void AdduserLevelData(string userLevel){
+		// レベル登録
+		this.userLevel = int.Parse(userLevel);
+		PlayerPrefs.SetString("PlayerData", this.GetJsonData());
+	}
+
+	// ポイント情報追加
+	public void AddPointCountData(string pointCount){
+		// ポイント登録
+		this.pointCount = int.Parse(pointCount);
 		PlayerPrefs.SetString("PlayerData", this.GetJsonData());
 	}
 

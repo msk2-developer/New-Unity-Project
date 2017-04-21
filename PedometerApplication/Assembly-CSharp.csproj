@@ -52,9 +52,8 @@
      <Compile Include="Assets\Script\Common\Help.cs" />
      <Compile Include="Assets\Script\Common\Save.cs" />
      <Compile Include="Assets\Script\Info\InfoButtonScript.cs" />
-     <Compile Include="Assets\Script\Main\Battle.cs" />
      <Compile Include="Assets\Script\Main\MainView.cs" />
-     <Compile Include="Assets\Script\Main\Pet.cs" />
+     <Compile Include="Assets\Script\PedometerTitle\PedometerTitle.cs" />
      <Compile Include="Assets\Script\PetShop\PetShop.cs" />
      <Compile Include="Assets\Script\Shop\HoldPress.cs" />
      <Compile Include="Assets\Script\Shop\ItemsBuy.cs" />

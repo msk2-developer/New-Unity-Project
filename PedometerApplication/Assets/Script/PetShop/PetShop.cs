@@ -17,6 +17,9 @@ public class PetShop : MonoBehaviour {
 	void Start () {
 		save = GameObject.Find("Canvas").transform.GetComponent<Save> ();
 		pointCount = GameObject.Find ("PointCount");
+
+		// データ設定
+		pointCount.GetComponent<Text>().text = save.pointCount.ToString();
 		foreach (Transform child in GameObject.Find("WeaponShop").transform){
 			for (int i = 0; i < save.petCount; i++) {
 				if (child.FindChild ("PetName").GetComponent<Text> ().text.Equals (save.petNames[i])) {

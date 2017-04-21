@@ -29,11 +29,16 @@ public class MainView : MonoBehaviour {
 		petSprites = Resources.LoadAll<Sprite> ("Image/ActRPGsprites/en");
 		canvas = GameObject.FindObjectOfType<Canvas> ();
 
+		// データ設定
+		GameObject.Find("UserName").GetComponent<Text>().text = save.userName;
+		GameObject.Find("Level").GetComponent<Text>().text = save.userLevel.ToString();
+		GameObject.Find("PointCount").GetComponent<Text>().text = save.pointCount.ToString();
+		GameObject.Find("WalkingCount").GetComponent<Text>().text = save.todayWalkingCount.ToString();
+
 		// ペットボタン制御
 		petButton = GameObject.Find ("PetButton");
 		petPanel = GameObject.Find("PetPanel");
 		petPanel.SetActive (false);
-		save.DeleteData ();
 		// ペットの設定
 		for(int i = 0; i < save.selectPets.Length;i++){
 			for (int j = 0; j < save.petNames.Length; j++) {
