@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 32306620}
   - component: {fileID: 32306619}
   m_Layer: 5
-  m_Name: Pet5
+  m_Name: PetImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1302,7 +1302,7 @@ GameObject:
   - component: {fileID: 444732301}
   - component: {fileID: 444732300}
   m_Layer: 5
-  m_Name: Pet3
+  m_Name: PetImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2668,7 +2668,7 @@ GameObject:
   - component: {fileID: 1158795019}
   - component: {fileID: 1158795018}
   m_Layer: 5
-  m_Name: Pet2
+  m_Name: PetImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3108,7 +3108,7 @@ GameObject:
   - component: {fileID: 1294235120}
   - component: {fileID: 1294235119}
   m_Layer: 5
-  m_Name: Pet6
+  m_Name: PetImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3176,7 +3176,7 @@ GameObject:
   - component: {fileID: 1294994849}
   - component: {fileID: 1294994848}
   m_Layer: 5
-  m_Name: Pet4
+  m_Name: PetImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3567,7 +3567,7 @@ GameObject:
   - component: {fileID: 1418651451}
   - component: {fileID: 1418651450}
   m_Layer: 5
-  m_Name: Pet7
+  m_Name: PetImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4052,7 +4052,7 @@ GameObject:
   - component: {fileID: 1654409440}
   - component: {fileID: 1654409439}
   m_Layer: 5
-  m_Name: Pet8
+  m_Name: PetImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4127,7 +4127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1683025773
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4403,7 +4403,11 @@ Prefab:
       objectReference: {fileID: 1821767560}
     - target: {fileID: 1766094819103106, guid: e4216b4924d3340b4a8a6a0bd2f572ce, type: 2}
       propertyPath: m_Name
-      value: button1
+      value: Button1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479679562790546, guid: e4216b4924d3340b4a8a6a0bd2f572ce, type: 2}
+      propertyPath: m_Name
+      value: PetImage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4216b4924d3340b4a8a6a0bd2f572ce, type: 2}
@@ -4587,9 +4591,10 @@ GameObject:
   - component: {fileID: 1821767558}
   - component: {fileID: 1821767557}
   - component: {fileID: 1821767556}
+  - component: {fileID: 1821767561}
   - component: {fileID: 1821767560}
   m_Layer: 5
-  m_Name: ShopCanvas
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4699,6 +4704,30 @@ MonoBehaviour:
   pointCount: {fileID: 0}
   dialogCanvas: {fileID: 865523828}
   petPointCountText: {fileID: 0}
+--- !u!114 &1821767561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1821767555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ca2617b4e67049a69142cceddb02cf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userName: 
+  pointCount: 0
+  todayWalkingCount: 0
+  totalWalkingCount: 0
+  petCount: 0
+  selectPets: []
+  petNames: []
+  petTypes: []
+  mainImages: []
+  walking1Images: []
+  walking2Images: []
+  walking3Images: []
+  walking4Images: []
 --- !u!1 &1826545301
 GameObject:
   m_ObjectHideFlags: 0

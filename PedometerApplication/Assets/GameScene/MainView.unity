@@ -447,7 +447,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &302074855
 RectTransform:
   m_ObjectHideFlags: 0
@@ -832,7 +832,6 @@ GameObject:
   - component: {fileID: 343992962}
   - component: {fileID: 343992961}
   - component: {fileID: 343992960}
-  - component: {fileID: 343992965}
   - component: {fileID: 343992964}
   - component: {fileID: 343992966}
   m_Layer: 5
@@ -941,20 +940,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 343992959}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f29e841dd7e234662a3bcc56d7b792ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ca2617b4e67049a69142cceddb02cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &343992965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 343992959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5682337ce506543edae8d46f3a8a5103, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  userName: 
+  pointCount: 0
+  todayWalkingCount: 0
+  totalWalkingCount: 0
+  petCount: 0
+  selectPets: []
+  petNames: []
+  petTypes: []
+  mainImages: []
+  walking1Images: []
+  walking2Images: []
+  walking3Images: []
+  walking4Images: []
 --- !u!114 &343992966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -968,18 +969,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   petButton: {fileID: 0}
   petPanel: {fileID: 0}
-  pet1Animation: {fileID: 4547535062157316, guid: 9f7c50befeab94d4890a3f3435660fca,
+  pet1Animation: {fileID: 4154103327041032, guid: 9f7c50befeab94d4890a3f3435660fca,
     type: 2}
   pet1AnimationClone: {fileID: 0}
-  battlePanel: {fileID: 0}
-  battleButton: {fileID: 0}
-  battleButtonText: {fileID: 1430359632}
-  battleEndTime: 0
   mainCamera: {fileID: 756675020}
-  charaWalk1: {fileID: 0}
-  charaWalk2: {fileID: 0}
-  charaWalk3: {fileID: 0}
-  charaWalk4: {fileID: 0}
   pet1Walk1: {fileID: 0}
   pet1Walk2: {fileID: 0}
   pet1Walk3: {fileID: 0}
@@ -1760,11 +1753,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 1
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 100
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1855,7 +1848,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1104883536
 Transform:
   m_ObjectHideFlags: 0
@@ -2707,7 +2700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1461882606
 RectTransform:
   m_ObjectHideFlags: 0

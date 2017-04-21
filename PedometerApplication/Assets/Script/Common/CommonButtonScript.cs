@@ -13,21 +13,29 @@ public class CommonButtonScript : MonoBehaviour {
 	//メインメニュー画面
 	public void MainMenuScene() {
 		Debug.Log("メインメニューボタンが押下されました。");
+		Save save = GameObject.Find("Canvas").transform.GetComponent<Save> ();
+		save.SaveData ();
 		SceneManager.LoadScene("MainView");
 	}
 	//歩数計画面
 	public void InformationScene() {
 		Debug.Log("インフォメーションが押下されました。");
+		Save save = GameObject.Find("Canvas").transform.GetComponent<Save> ();
+		save.SaveData ();
 		SceneManager.LoadScene ("Information");
 	}
 	//ショップ画面
 	public void ShopScene() {
 		Debug.Log("ショップボタンが押下されました。");
+		Save save = GameObject.Find("Canvas").transform.GetComponent<Save> ();
+		save.SaveData ();
 		SceneManager.LoadScene ("PetShop");
 	}
 	//キャラクター詳細画面
 	public void CharacterScene() {
 		Debug.Log("キャラクター詳細ボタンが押下されました。");
+		Save save = GameObject.Find("Canvas").transform.GetComponent<Save> ();
+		save.SaveData ();
 		SceneManager.LoadScene ("CharacterDetailsView");
 	}
 }

@@ -9,9 +9,19 @@ public class PetShop : MonoBehaviour {
 	public Canvas dialogCanvas;
 	public Text petPointCountText;
 
+	private Save save;
+
 	// Use this for initialization
 	void Start () {
+		save = GameObject.Find("Canvas").transform.GetComponent<Save> ();
 		pointCount = GameObject.Find ("PointCount");
+		foreach (Transform child in GameObject.Find("WeaponShop").transform){
+			for (int i = 0; i < save.petCount; i++) {
+				if (child.FindChild ("PetName").GetComponent<Text> ().text.Equals (save.petNames[i])) {
+					child.FindChild ("CostValue").GetComponent<Text> ().text = "購入済";
+				}
+			}
+		}
 	}
 
 	// Update is called once per frame
@@ -47,6 +57,9 @@ public class PetShop : MonoBehaviour {
 		} else {
 			pointCountText.text = pointCountInt.ToString ();
 			petPointCountText.text = "購入済";
+			save.AddPetData (petPointCountText.transform.parent.FindChild ("PetName").GetComponent<Text> ().text,
+				petPointCountText.transform.parent.FindChild ("PetImage").GetComponent<Image> ().sprite.name,
+				"en_115", "en_116", "en_117", "en_118");
 		}
 		// Canvas を無効にする。(ダイアログを閉じる)
 		dialogCanvas.enabled = false;

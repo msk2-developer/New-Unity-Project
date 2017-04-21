@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/GameScene/PedometerTitleScene.unity
+- path: Assets/GameScene/MainView.unity
   isLoaded: 1
   isActive: 1
