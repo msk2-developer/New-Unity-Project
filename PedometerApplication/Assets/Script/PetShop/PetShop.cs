@@ -79,6 +79,7 @@ public class PetShop : MonoBehaviour {
 			petPointCountText.text = "購入済";
 			save.AddPointCountData (pointCountText.text);
 			save.AddPetData (petButton.FindChild ("PetName").GetComponent<Text> ().text,
+				"色々なペットの説明",
 				petButton.FindChild ("PetImage").GetComponent<Image> ().sprite.name,
 				"en_115", "en_116", "en_117", "en_118");
 		}

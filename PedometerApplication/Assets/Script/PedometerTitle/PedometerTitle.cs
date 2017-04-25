@@ -39,7 +39,7 @@ public class PedometerTitle : MonoBehaviour {
 			save.AddUserData (userName);
 			save.AdduserLevelData ("1");
 			save.AddPointCountData ("3000");
-			save.AddPetData("スライム", "en_15", "en_14", "en_15", "en_16", "en_17");
+			save.AddPetData("スライム", "ただのスライム", "en_15", "en_14", "en_15", "en_16", "en_17");
 			commonButtonScript.MainMenuScene ();
 		}
 	}

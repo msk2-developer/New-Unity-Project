@@ -95,12 +95,12 @@ public class MainView : MonoBehaviour {
 			// TODO 実際はゲットしたぺット情報を追加する
 			this.AddPet (gameObjectName, "en_115",
 				"en_116", "en_117", "en_118");
-			// セーブ
-			// TODO 実際はゲットしたぺット情報をセーブする
-			save.AddPetData ("ドクロ", "en_106", petWalk1.GetComponent<Image> ().sprite.name, 
-				petWalk2.GetComponent<Image> ().sprite.name, petWalk3.GetComponent<Image> ().sprite.name, 
-				"en_118");
 		}
+		// セーブ
+		// TODO 実際はゲットしたぺット情報をセーブする
+		save.AddPetData ("ドクロ", "ただのドクロ", "en_106", "en_115", 
+			"en_116", "en_117", 
+			"en_118");
 	}
 
 	// 画面へのぺット追加処理

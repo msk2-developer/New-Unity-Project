@@ -7,7 +7,7 @@ public class Save : MonoBehaviour {
 
 	// ユーザ名
 	public string userName;
-	// ユーザ名
+	// ユーザレベル
 	public int userLevel;
 	// 所持ポイント
 	public int pointCount;
@@ -23,6 +23,8 @@ public class Save : MonoBehaviour {
 	public string[] petNames;
 	// ぺットタイプ (飛行など)
 	public string[] petTypes;
+	// ぺット詳細説明
+	public string[] petDescriptions;
 	// 正面のスプライト
 	public string[] mainImages;
 	// 歩いている時のスプライト1
@@ -81,18 +83,18 @@ public class Save : MonoBehaviour {
 	}
 
 	// ぺット情報追加
-	public void AddPetData(string newPetName, string newMainImage,
+	public void AddPetData(string newPetName, string newPetDescription, string newMainImage,
 		string newWalkingImage1, string newWalkingImage2, string newWalkingImage3, string newWalkingImage4){
 		this.petNames = setArray (this.petNames, newPetName);
+		this.petDescriptions = setArray (this.petDescriptions, newPetDescription);
 		this.mainImages = setArray (this.mainImages, newMainImage);
 		this.walking1Images = setArray (this.walking1Images, newWalkingImage1);
 		this.walking2Images = setArray (this.walking2Images, newWalkingImage2);
 		this.walking3Images = setArray (this.walking3Images, newWalkingImage3);
 		this.walking4Images = setArray (this.walking4Images, newWalkingImage4);
 		this.petCount += 1;
-		this.selectPets = new string[4];
-		for (int i = 0; i < this.petCount && i < 4; i++) {
-			this.selectPets [i] = this.petNames [i];
+		if (this.selectPets.Length < 4) {
+			this.selectPets = setArray (this.selectPets, newPetName);
 		}
 		PlayerPrefs.SetString("PlayerData", this.GetJsonData());
 	}
