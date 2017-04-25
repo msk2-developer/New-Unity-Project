@@ -5,20 +5,11 @@ using UnityEngine.UI;
 
 public class CharacterTap : MonoBehaviour {
 
-	private GameObject changeButton;
-	private GameObject status2LabelObj;
-	private GameObject status2Obj;
-	public Text characterNameText;
-	public Text status1Label;
-	public Text status1Text;
-	public Text status2Text;
-	public Text descriptionText;
+	private CharacterDetail characterDetail;
 
 	// Use this for initialization
 	void Start () {
-		changeButton = GameObject.Find ("ChangeButton");
-		status2LabelObj = GameObject.Find ("Status2Label");
-		status2Obj = GameObject.Find ("Status2");
+		characterDetail = GameObject.FindObjectOfType<Canvas> ().transform.GetComponent<CharacterDetail> ();
 	}
 	
 	// Update is called once per frame
@@ -26,53 +17,20 @@ public class CharacterTap : MonoBehaviour {
 		
 	}
 
-	// キャラクタータップ
-	public void WeaponMyselfTap () {
-		// キャラ名を表示
-		characterNameText.text = "桃太郎";
-		// 変更ボタンを非表示
-		changeButton.SetActive(false);
-		// ステータス1をHP表示
-		status1Label.text = "HP";
-		status1Text.text = "100";
-		// ステータス2を非表示
-		status2LabelObj.SetActive(false);
-		status2Obj.SetActive(false);
-		// 詳細を表示
-		descriptionText.text = "主人公";
-	}
-
-	// 右手装備タップ
-	public void WeaponRightTap () {
-		// 右手装備名を表示
-		characterNameText.text = "斧";
-		// 変更ボタンを表示
-		changeButton.SetActive(true);
-		// ステータス1を攻撃力表示
-		status1Label.text = "攻撃力";
-		status1Text.text = "5";
-		// ステータス2を防御力表示
-		status2LabelObj.SetActive(true);
-		status2Obj.SetActive(true);
-		status2Text.text = "2";
-		// 詳細を表示
-		descriptionText.text = "ただの斧";
-	}
-
-	// 左手装備タップ
-	public void WeaponLeftTap () {
-		// 右手装備名を表示
-		characterNameText.text = "ナイフ";
-		// 変更ボタンを表示
-		changeButton.SetActive(true);
-		// ステータス1を攻撃力表示
-		status1Label.text = "攻撃力";
-		status1Text.text = "3";
-		// ステータス2を防御力表示
-		status2LabelObj.SetActive(true);
-		status2Obj.SetActive(true);
-		status2Text.text = "0";
-		// 詳細を表示
-		descriptionText.text = "ただのナイフ";
+	// 入替画面の一覧側ペットボタンタップ処理
+	public void PetColPanelPetButtonTap (Button button) {
+		if (characterDetail.petButton != null &&
+		    button.transform.FindChild ("Image").GetComponent<Image> ().sprite != null) {
+			foreach (Transform child in GameObject.Find("SelectPetPanel").transform) {
+				if (child.FindChild ("Image").GetComponent<Image> ().sprite != null &&
+				    child.FindChild ("Image").GetComponent<Image> ().sprite.name.Equals (
+					    button.transform.FindChild ("Image").GetComponent<Image> ().sprite.name)) {
+					child.FindChild ("Image").GetComponent<Image> ().sprite =
+						characterDetail.petButton.transform.FindChild ("Image").GetComponent<Image> ().sprite;
+				}
+			}
+			characterDetail.petButton.transform.FindChild ("Image").GetComponent<Image> ().sprite =
+			button.transform.FindChild ("Image").GetComponent<Image> ().sprite;
+		}
 	}
 }

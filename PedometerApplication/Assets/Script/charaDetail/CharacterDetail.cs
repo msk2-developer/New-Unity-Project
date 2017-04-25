@@ -7,16 +7,18 @@ public class CharacterDetail : MonoBehaviour {
 
 	private GameObject petListPanel;
 	public Transform petColPanel;
-	private Button petButton;
+	public Button petButton;
 
 	private Save save;
 	private Sprite[] petSprites;
+	private CommonButtonScript commonButtonScript;
 
 	// Use this for initialization
 	void Start () {
 		save = GameObject.FindObjectOfType<Canvas> ().transform.GetComponent<Save> ();
 		petSprites = Resources.LoadAll<Sprite> ("Image/ActRPGsprites/en");
-		save.DeleteData ();
+		commonButtonScript = GameObject.Find("MenuBox").transform.GetComponent<CommonButtonScript> ();
+
 		petListPanel = GameObject.Find ("PetListPanel");
 
 		for (int i = 0; i < 4; i++) {
@@ -72,33 +74,58 @@ public class CharacterDetail : MonoBehaviour {
 		petListPanel.SetActive (true);
 	}
 
-	// 入替画面の選択ペットボタンタップ処理
+	// 入替画面の選択側ペットボタンタップ処理
 	public void SelectPetPanelPetButtonTap (Button button) {
-		if (petButton == null) {
-			petButton = button;
-			petButton.transform.FindChild ("Image").GetComponent<Image> ().color = new Color (1.0f, 1.0f, 1.0f, 0.5f);
-		}else if(!petButton.name.Equals (button.name)) {
-			petButton.transform.FindChild ("Image").GetComponent<Image> ().color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
-			petButton = button;
-			petButton.transform.FindChild ("Image").GetComponent<Image> ().color = new Color (1.0f, 1.0f, 1.0f, 0.5f);
-		} else {
-			petButton.transform.FindChild ("Image").GetComponent<Image> ().color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
-			petButton = null;
+		if (button.transform.FindChild("Image").GetComponent<Image> ().sprite != null) {
+			if (petButton == null) {
+				petButton = button;
+				petButton.transform.FindChild ("Image").GetComponent<Image> ().color = new Color (1.0f, 1.0f, 1.0f, 0.5f);
+			} else if (!petButton.name.Equals (button.name)) {
+				petButton.transform.FindChild ("Image").GetComponent<Image> ().color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
+				petButton = button;
+				petButton.transform.FindChild ("Image").GetComponent<Image> ().color = new Color (1.0f, 1.0f, 1.0f, 0.5f);
+			} else {
+				petButton.transform.FindChild ("Image").GetComponent<Image> ().color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
+				petButton = null;
+			}
 		}
-	}
-
-	// 入替画面の選択ペットボタンタップ処理
-	public void PetColPanelButtonTap (Button button) {
-
 	}
 
 	// 戻るボタンタップ処理
 	public void BackButtonTap () {
+		for (int i = 0; i < 4; i++) {
+			GameObject petListPet = GameObject.Find ("SelectPetPanel").transform.FindChild ("PetButton" + i).gameObject;
+			if (i < save.selectPets.Length) {
+				for (int j = 0; j < save.petNames.Length; j++) {
+					if (save.selectPets [i].Equals (save.petNames [j])) {
+						Sprite mainImageSprite = System.Array.Find<Sprite> (petSprites, (sprite) => sprite.name.Equals (save.mainImages [j]));
+						petListPet.transform.FindChild ("Image").GetComponent<Image> ().sprite = mainImageSprite;
+					}
+				}
+			} else {
+				petListPet.transform.FindChild ("Image").GetComponent<Image> ().sprite = null;
+			}
+		}
+		if (petButton != null) {
+			petButton.transform.FindChild ("Image").GetComponent<Image> ().color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
+			petButton = null;
+		}
 		petListPanel.SetActive (false);
 	}
 
 	// 決定ボタンタップ処理
 	public void DecideButtonTap () {
-		petListPanel.SetActive (false);
+		List<string> petNameList = new List<string>();
+		foreach (Transform child in GameObject.Find("SelectPetPanel").transform) {
+			for (int i = 0; i < save.mainImages.Length; i++) {
+				if (child.FindChild ("Image").GetComponent<Image> ().sprite != null &&
+					child.FindChild ("Image").GetComponent<Image> ().sprite.name.Equals (save.mainImages[i])) {
+					petNameList.Add(save.petNames [i]);
+				}
+			}
+		}
+		string[] newSelectPets = petNameList.ToArray ();
+		save.ChangeSelectPetsData (newSelectPets);
+		commonButtonScript.CharacterScene ();
 	}
 }

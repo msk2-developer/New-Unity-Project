@@ -807,11 +807,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4261e4cd3a0e8442d8f18461e0d37c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterNameText: {fileID: 780074937}
-  status1Label: {fileID: 1165275041}
-  status1Text: {fileID: 2087467599}
-  status2Text: {fileID: 1062638000}
-  descriptionText: {fileID: 1786255285}
 --- !u!114 &351822328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1215,11 +1210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4261e4cd3a0e8442d8f18461e0d37c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterNameText: {fileID: 780074937}
-  status1Label: {fileID: 1165275041}
-  status1Text: {fileID: 2087467599}
-  status2Text: {fileID: 1062638000}
-  descriptionText: {fileID: 1786255285}
 --- !u!114 &486413358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2264,11 +2254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4261e4cd3a0e8442d8f18461e0d37c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterNameText: {fileID: 780074937}
-  status1Label: {fileID: 1165275041}
-  status1Text: {fileID: 2087467599}
-  status2Text: {fileID: 1062638000}
-  descriptionText: {fileID: 1786255285}
 --- !u!114 &1127055017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2669,8 +2654,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e60299958b1a4248bfb0189aadf51af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  petColPanel: {fileID: 224202172089305458, guid: 40d7985496ab44984945cf63b400e236,
+  petColPanel: {fileID: 224317979224610076, guid: 522cc84b26dde480bba5c0898610f78d,
     type: 2}
+  petButton: {fileID: 0}
 --- !u!1 &1327546901
 GameObject:
   m_ObjectHideFlags: 0
