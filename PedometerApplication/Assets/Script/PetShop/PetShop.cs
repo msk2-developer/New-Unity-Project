@@ -11,18 +11,15 @@ public class PetShop : MonoBehaviour {
 	private Text petPointCountText;
 	private Transform petButton;
 
-	private Save save;
-
 	// Use this for initialization
 	void Start () {
-		save = GameObject.Find("Canvas").transform.GetComponent<Save> ();
 		pointCount = GameObject.Find ("PointCount");
 
 		// データ設定
-		pointCount.GetComponent<Text>().text = save.pointCount.ToString();
+		pointCount.GetComponent<Text>().text = SaveData.save.pointCount.ToString();
 		foreach (Transform child in GameObject.Find("WeaponShop").transform){
-			for (int i = 0; i < save.petCount; i++) {
-				if (child.FindChild ("PetName").GetComponent<Text> ().text.Equals (save.petNames[i])) {
+			for (int i = 0; i < SaveData.save.petCount; i++) {
+				if (child.FindChild ("PetName").GetComponent<Text> ().text.Equals (SaveData.save.petNames[i])) {
 					child.FindChild ("CostValue").GetComponent<Text> ().text = "購入済";
 				}
 			}
@@ -77,8 +74,12 @@ public class PetShop : MonoBehaviour {
 		} else {
 			pointCountText.text = pointCountInt.ToString ();
 			petPointCountText.text = "購入済";
-			save.AddPointCountData (pointCountText.text);
-			save.AddPetData (petButton.FindChild ("PetName").GetComponent<Text> ().text,
+			SaveData.save.AddPointCountData (pointCountText.text);
+			SaveData.AddSelectPet (petButton.FindChild ("PetName").GetComponent<Text> ().text,
+				"色々なペットの説明",
+				petButton.FindChild ("PetImage").GetComponent<Image> ().sprite.name,
+				"en_115", "en_116", "en_117", "en_118");
+			SaveData.save.AddPetData (petButton.FindChild ("PetName").GetComponent<Text> ().text,
 				"色々なペットの説明",
 				petButton.FindChild ("PetImage").GetComponent<Image> ().sprite.name,
 				"en_115", "en_116", "en_117", "en_118");

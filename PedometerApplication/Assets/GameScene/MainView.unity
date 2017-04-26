@@ -832,7 +832,6 @@ GameObject:
   - component: {fileID: 343992962}
   - component: {fileID: 343992961}
   - component: {fileID: 343992960}
-  - component: {fileID: 343992964}
   - component: {fileID: 343992966}
   m_Layer: 5
   m_Name: Canvas
@@ -932,30 +931,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &343992964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 343992959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ca2617b4e67049a69142cceddb02cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  userName: 
-  pointCount: 0
-  todayWalkingCount: 0
-  totalWalkingCount: 0
-  petCount: 0
-  selectPets: []
-  petNames: []
-  petTypes: []
-  mainImages: []
-  walking1Images: []
-  walking2Images: []
-  walking3Images: []
-  walking4Images: []
 --- !u!114 &343992966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2394,11 +2369,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4261e4cd3a0e8442d8f18461e0d37c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterNameText: {fileID: 0}
-  status1Label: {fileID: 0}
-  status1Text: {fileID: 0}
-  status2Text: {fileID: 0}
-  descriptionText: {fileID: 0}
 --- !u!114 &1371173014
 MonoBehaviour:
   m_ObjectHideFlags: 0

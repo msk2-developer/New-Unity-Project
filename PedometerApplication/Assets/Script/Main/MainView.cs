@@ -19,35 +19,29 @@ public class MainView : MonoBehaviour {
 	private GameObject petWalk3;
 	private GameObject petWalk4;
 
-	private Save save;
 	private Sprite[] petSprites;
 	private Canvas canvas;
 
 	// Use this for initialization
 	void Start () {
-		save = GameObject.FindObjectOfType<Canvas> ().transform.GetComponent<Save> ();
 		petSprites = Resources.LoadAll<Sprite> ("Image/ActRPGsprites/en");
 		canvas = GameObject.FindObjectOfType<Canvas> ();
 
 		// データ設定
-		GameObject.Find("UserName").GetComponent<Text>().text = save.userName;
-		GameObject.Find("Level").GetComponent<Text>().text = save.userLevel.ToString();
-		GameObject.Find("PointCount").GetComponent<Text>().text = save.pointCount.ToString();
-		GameObject.Find("WalkingCount").GetComponent<Text>().text = save.todayWalkingCount.ToString();
+		GameObject.Find("UserName").GetComponent<Text>().text = SaveData.save.userName;
+		GameObject.Find("Level").GetComponent<Text>().text = SaveData.save.userLevel.ToString();
+		GameObject.Find("PointCount").GetComponent<Text>().text = SaveData.save.pointCount.ToString();
+		GameObject.Find("WalkingCount").GetComponent<Text>().text = SaveData.save.todayWalkingCount.ToString();
 
 		// ペットボタン制御
 		petButton = GameObject.Find ("PetButton");
 		petPanel = GameObject.Find("PetPanel");
 		petPanel.SetActive (false);
 		// ペットの設定
-		for(int i = 0; i < save.selectPets.Length;i++){
-			for (int j = 0; j < save.petNames.Length; j++) {
-				if (save.selectPets [i].Equals (save.petNames [j])) {
-					// ぺット表示
-					this.AddPet ("petAnimation" + i, save.walking1Images [j],
-						save.walking2Images [j], save.walking3Images [j], save.walking4Images [j]);
-				}
-			}
+		for(int i = 0; i < SaveData.GetSelectPetCount();i++){
+			// ぺット表示
+			this.AddPet ("petAnimation" + i, SaveData.GetWalking1Images()[i],
+				SaveData.GetWalking2Images()[i], SaveData.GetWalking3Images()[i], SaveData.GetWalking4Images()[i]);
 		}
 	}
 	
@@ -95,12 +89,14 @@ public class MainView : MonoBehaviour {
 			// TODO 実際はゲットしたぺット情報を追加する
 			this.AddPet (gameObjectName, "en_115",
 				"en_116", "en_117", "en_118");
+			// セーブデータクラスに保持
+			SaveData.AddSelectPet ("ドクロ", "ただのドクロ", "en_106", "en_115", 
+				"en_116", "en_117", "en_118");
 		}
 		// セーブ
 		// TODO 実際はゲットしたぺット情報をセーブする
-		save.AddPetData ("ドクロ", "ただのドクロ", "en_106", "en_115", 
-			"en_116", "en_117", 
-			"en_118");
+		SaveData.save.AddPetData ("ドクロ", "ただのドクロ", "en_106", "en_115", 
+			"en_116", "en_117", "en_118");
 	}
 
 	// 画面へのぺット追加処理
@@ -132,7 +128,6 @@ public class MainView : MonoBehaviour {
 		petWalk3.GetComponent<Image>().sprite = walkingSprite;
 		walkingSprite = System.Array.Find<Sprite>( petSprites, (sprite) => sprite.name.Equals(walkingImage4));
 		petWalk4.GetComponent<Image>().sprite = walkingSprite;
-		Debug.Log (petWalk4.GetComponent<Image> ().sprite);
 	}
 
 	// ぺット表示位置取得

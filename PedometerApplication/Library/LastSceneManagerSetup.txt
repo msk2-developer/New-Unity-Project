@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/GameScene/PedometerTitleScene.unity
+- path: Assets/GameScene/PetShop.unity
   isLoaded: 1
   isActive: 1

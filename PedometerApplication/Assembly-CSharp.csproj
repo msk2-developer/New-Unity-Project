@@ -49,8 +49,11 @@
      <Compile Include="Assets\Script\CharaDetail\CharacterDetail.cs" />
      <Compile Include="Assets\Script\CharaDetail\CharacterTap.cs" />
      <Compile Include="Assets\Script\Common\CommonButtonScript.cs" />
+     <Compile Include="Assets\Script\Common\Example.cs" />
      <Compile Include="Assets\Script\Common\Help.cs" />
      <Compile Include="Assets\Script\Common\Save.cs" />
+     <Compile Include="Assets\Script\Common\SaveData.cs" />
+     <Compile Include="Assets\Script\Common\Test.cs" />
      <Compile Include="Assets\Script\Info\InfoButtonScript.cs" />
      <Compile Include="Assets\Script\Main\MainView.cs" />
      <Compile Include="Assets\Script\PedometerTitle\PedometerTitle.cs" />

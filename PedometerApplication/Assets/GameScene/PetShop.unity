@@ -4951,7 +4951,6 @@ GameObject:
   - component: {fileID: 1821767558}
   - component: {fileID: 1821767557}
   - component: {fileID: 1821767556}
-  - component: {fileID: 1821767561}
   - component: {fileID: 1821767560}
   m_Layer: 5
   m_Name: Canvas
@@ -5064,30 +5063,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buyCanvas: {fileID: 865523828}
   alertCanvas: {fileID: 244014541}
---- !u!114 &1821767561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1821767555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ca2617b4e67049a69142cceddb02cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  userName: 
-  pointCount: 0
-  todayWalkingCount: 0
-  totalWalkingCount: 0
-  petCount: 0
-  selectPets: []
-  petNames: []
-  petTypes: []
-  mainImages: []
-  walking1Images: []
-  walking2Images: []
-  walking3Images: []
-  walking4Images: []
 --- !u!1 &1826545301
 GameObject:
   m_ObjectHideFlags: 0

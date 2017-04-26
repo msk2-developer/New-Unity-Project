@@ -99,7 +99,7 @@ public class Save : MonoBehaviour {
 		PlayerPrefs.SetString("PlayerData", this.GetJsonData());
 	}
 
-	// ぺット情報追加
+	// 選択ぺット変更
 	public void ChangeSelectPetsData(string[] newSelectPets){
 		this.selectPets = newSelectPets;
 		PlayerPrefs.SetString("PlayerData", this.GetJsonData());

@@ -14,6 +14,7 @@ public class PedometerTitle : MonoBehaviour {
 	void Start () {
 		save = GameObject.Find("Canvas").transform.GetComponent<Save> ();
 		commonButtonScript = GameObject.Find("Canvas").transform.GetComponent<CommonButtonScript> ();
+		save.DeleteData ();
 	}
 
 	// Update is called once per frame
@@ -40,6 +41,8 @@ public class PedometerTitle : MonoBehaviour {
 			save.AdduserLevelData ("1");
 			save.AddPointCountData ("10000");
 			save.AddPetData("スライム", "ただのスライム", "en_15", "en_14", "en_15", "en_16", "en_17");
+			commonButtonScript.MainMenuScene ();
+			SaveData.AddSelectPet("スライム", "ただのスライム", "en_15", "en_14", "en_15", "en_16", "en_17");
 			commonButtonScript.MainMenuScene ();
 		}
 	}
