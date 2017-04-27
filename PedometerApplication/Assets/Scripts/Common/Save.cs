@@ -19,6 +19,8 @@ public class Save : MonoBehaviour {
 	public int petCount;
 	// Main画面表示ぺット (とりあえずぺット名を入れる)
 	public string[] selectPets;
+	// ぺットID
+	public string[] petIDs;
 	// ぺット名
 	public string[] petNames;
 	// ぺットタイプ (飛行など)

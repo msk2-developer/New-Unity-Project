@@ -37,6 +37,12 @@ public class PedometerTitle : MonoBehaviour {
 		string userName = GameObject.Find ("InputField").GetComponent<InputField> ().text;
 		// ユーザ名を入力した時、メイン画面に遷移する
 		if (userName != null && 0 < userName.Trim().Length) {
+			var ds = new DataService ("PedometerApplication.db");
+			ds.DelInsUserData (userName);
+			ds.UpdMyPetData (1, 1);
+			ds.DelInsSelectedPetData (new int[]{ 1 });
+			var pets = ds.GetSelectedPetData ();
+					ToConsole (pets);
 			save.AddUserData (userName);
 			save.AdduserLevelData ("1");
 			save.AddPointCountData ("10000");
@@ -45,5 +51,15 @@ public class PedometerTitle : MonoBehaviour {
 			SaveData.AddSelectPet("スライム", "ただのスライム", "en_15", "en_14", "en_15", "en_16", "en_17");
 			commonButtonScript.MainMenuScene ();
 		}
+	}
+
+	private void ToConsole(IEnumerable<PetData> pets){
+		foreach (var pet in pets) {
+			ToConsole(pet.ToString());
+		}
+	}
+
+	private void ToConsole(string msg){
+		Debug.Log (msg);
 	}
 }

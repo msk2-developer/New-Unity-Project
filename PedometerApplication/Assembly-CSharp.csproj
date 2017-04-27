@@ -46,25 +46,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Script\CharaDetail\CharacterDetail.cs" />
-     <Compile Include="Assets\Script\CharaDetail\CharacterTap.cs" />
-     <Compile Include="Assets\Script\Common\CommonButtonScript.cs" />
-     <Compile Include="Assets\Script\Common\Example.cs" />
-     <Compile Include="Assets\Script\Common\Help.cs" />
-     <Compile Include="Assets\Script\Common\Save.cs" />
-     <Compile Include="Assets\Script\Common\SaveData.cs" />
-     <Compile Include="Assets\Script\Common\Test.cs" />
-     <Compile Include="Assets\Script\Info\InfoButtonScript.cs" />
-     <Compile Include="Assets\Script\Main\MainView.cs" />
-     <Compile Include="Assets\Script\PedometerTitle\PedometerTitle.cs" />
-     <Compile Include="Assets\Script\PetShop\PetShop.cs" />
-     <Compile Include="Assets\Script\Shop\HoldPress.cs" />
-     <Compile Include="Assets\Script\Shop\ItemsBuy.cs" />
-     <Compile Include="Assets\Script\Shop\Points.cs" />
-     <Compile Include="Assets\Script\Shop\SetShop.cs" />
-     <Compile Include="Assets\Script\Shop\SheldShop.cs" />
-     <Compile Include="Assets\Script\Shop\ShopButtonScript.cs" />
-     <Compile Include="Assets\Script\Shop\WeponShop.cs" />
+     <Compile Include="Assets\Scripts\CharaDetail\CharacterDetail.cs" />
+     <Compile Include="Assets\Scripts\CharaDetail\CharacterTap.cs" />
+     <Compile Include="Assets\Scripts\Common\CommonButtonScript.cs" />
+     <Compile Include="Assets\Scripts\Common\Example.cs" />
+     <Compile Include="Assets\Scripts\Common\Help.cs" />
+     <Compile Include="Assets\Scripts\Common\Save.cs" />
+     <Compile Include="Assets\Scripts\Common\SaveData.cs" />
+     <Compile Include="Assets\Scripts\Common\Test.cs" />
+     <Compile Include="Assets\Scripts\Info\InfoButtonScript.cs" />
+     <Compile Include="Assets\Scripts\Main\MainView.cs" />
+     <Compile Include="Assets\Scripts\PedometerTitle\PedometerTitle.cs" />
+     <Compile Include="Assets\Scripts\PetShop\PetShop.cs" />
+     <Compile Include="Assets\Scripts\SQL\DataService.cs" />
+     <Compile Include="Assets\Scripts\SQL\PetData.cs" />
+     <Compile Include="Assets\Scripts\SQL\SQLite.cs" />
+     <Compile Include="Assets\Scripts\SQL\SelectedPetData.cs" />
+     <Compile Include="Assets\Scripts\SQL\UserData.cs" />
+     <Compile Include="Assets\Scripts\Shop\HoldPress.cs" />
+     <Compile Include="Assets\Scripts\Shop\ItemsBuy.cs" />
+     <Compile Include="Assets\Scripts\Shop\Points.cs" />
+     <Compile Include="Assets\Scripts\Shop\SetShop.cs" />
+     <Compile Include="Assets\Scripts\Shop\SheldShop.cs" />
+     <Compile Include="Assets\Scripts\Shop\ShopButtonScript.cs" />
+     <Compile Include="Assets\Scripts\Shop\WeponShop.cs" />
      <None Include="Assets\Resources\Image\ActRPGsprites\readme.txt" />
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>

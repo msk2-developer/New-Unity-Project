@@ -19,6 +19,8 @@ public class CharacterDetail : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+
 		// 画像読み込み
 		petSprites = Resources.LoadAll<Sprite> ("Image/ActRPGsprites/en");
 		// 登録用に遷移ボタンクラス取得
@@ -52,6 +54,32 @@ public class CharacterDetail : MonoBehaviour {
 			petColPanelClone.FindChild ("PetButton" + (i % 4)).FindChild ("Image").GetComponent<Image> ().sprite = mainImageSprite;
 		}
 		petListPanel.SetActive (false);
+
+//		// TODO テスト
+//		var ds = new DataService ("PedometerApplication.db");
+//		//ds.CreateDB ();
+//		var pets = ds.GetPets ();
+//		ToConsole (pets);
+//
+//		pets = ds.GetPetsNamedAaa ();
+//		ToConsole("Searching for aaa ...");
+//		ToConsole (pets);
+//
+//		ds.CreatePet ();
+//		ToConsole("New pet has been created");
+//		var p = ds.GetPets ();
+//		ToConsole(p);
+
+	}
+
+	private void ToConsole(IEnumerable<PetData> pets){
+		foreach (var pet in pets) {
+			ToConsole(pet.ToString());
+		}
+	}
+
+	private void ToConsole(string msg){
+		Debug.Log (msg);
 	}
 
 	// メイン画面のぺットタップ処理
