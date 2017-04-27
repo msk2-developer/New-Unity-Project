@@ -28,9 +28,20 @@ public class Example {
 		secondreslut = _ex_returnval();
 		#endif
 	}
-	public static int SecondReturnvalue() {
+	public static int GetReturnvalue() {
 		int resval;
 		resval = secondreslut;
 		return resval;
 	}
+
+	#if UNITY_IOS && !UNITY_EDITOR
+	[DllImport("__Internal")]
+	private static extern int _ex_HistPedometer();
+	#endif
+	public static void ShowHistry() {
+		#if UNITY_IOS && !UNITY_EDITOR
+		result = _ex_HistPedometer();
+		#endif
+	}
+
 }

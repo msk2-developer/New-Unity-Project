@@ -7,23 +7,31 @@ public class Test : MonoBehaviour
 
 	public Text textPoint;
 	int points;
+	int todayPoint;
+	public Text walkCount;
 	// Use this for initialization
 	void Start ()
 	{
-//		textPoint.text = this.points.ToString();
+		Example.ShowHistry ();
+		todayPoint = Example.Returnvalue ();
 		Example.Call_workadd();
-		points = Example.Returnvalue ();
-		Debug.Log ("ポイントは"+points+"です");
+		Debug.Log (todayPoint);
+		walkCount.text = todayPoint.ToString();
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
 		Example.Pedovalue ();
-		points = Example.SecondReturnvalue();
-		Debug.Log ("現在のポイントとか¥n"+points);
-		textPoint.text = this.points.ToString();
+		points = Example.GetReturnvalue();
+		//Debug.Log ("現在のポイントとか¥n"+points);
+		textPoint.text = points.ToString();
 	}
 
+	public void hist() {
+		Example.ShowHistry ();
+		todayPoint = Example.Returnvalue ();
+		Debug.Log (todayPoint);
+	}
 
 }

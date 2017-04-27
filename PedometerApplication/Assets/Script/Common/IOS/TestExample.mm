@@ -21,4 +21,9 @@ extern "C" {
         retval = (int)[TestExample returnvalue];
         return retval;
     }
+    int _ex_HistPedometer() {
+        int retvalue;
+        retvalue = [TestExample callHist];
+        return retvalue;
+    }
 }
