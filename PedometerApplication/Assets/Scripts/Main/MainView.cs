@@ -132,12 +132,12 @@ public class MainView : MonoBehaviour {
 
 	// 画面へのぺット追加処理
 	void AddPet(string petAnimationName, SelPetJoinAllPetData selPetJoinAllPetData){
-		// 表示位置取得
-		Vector3 position = this.getPosition (petAnimationName);
 		// ぺット作成
-		petAnimationClone = Instantiate (petAnimation, position, Quaternion.identity, canvas.transform);
+		petAnimationClone = Instantiate (petAnimation, canvas.transform, false);
 		// Object名設定
 		petAnimationClone.name = petAnimationName;
+		// ポジション設定
+		petAnimationClone.localPosition = this.getPosition (petAnimationName);
 		// ヒエラルキー位置設定
 		petAnimationClone.SetSiblingIndex(1);
 
@@ -165,13 +165,13 @@ public class MainView : MonoBehaviour {
 	Vector3 getPosition(string petAnimationName){
 		Vector3 position;
 		if ("petAnimation0".Equals(petAnimationName)) {
-			position = new Vector3 (195.0f, 80.0f);
+			position = new Vector3 (133.0f, -191.0f);
 		} else if ("petAnimation1".Equals(petAnimationName)) {
-			position = new Vector3 (140.0f, 92.0f);
+			position = new Vector3 (43.0f, -170.0f);
 		} else if ("petAnimation2".Equals(petAnimationName)) {
-			position = new Vector3 (85.0f, 80.0f);
+			position = new Vector3 (-53.0f, -190.0f);
 		} else {
-			position = new Vector3 (30.0f, 92.0f);
+			position = new Vector3 (-143.0f, -170.0f);
 		}
 		return position;
 	}
