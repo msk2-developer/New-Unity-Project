@@ -10,6 +10,8 @@ public class MainView : MonoBehaviour {
 	private GameObject petPanel;
 	public Transform petAnimation;
 	private Transform petAnimationClone;
+	private Sprite newPetSprite;
+	private List<PetData> wildPetDataList;
 
 	/* キャラの動き関連 */
 	public Transform mainCamera;
@@ -23,9 +25,12 @@ public class MainView : MonoBehaviour {
 
 	private GameObject mainmenu;
 
+	DataService ds;
+
 	// Use this for initialization
 	void Start () {
 		canvas = GameObject.FindObjectOfType<Canvas> ();
+		ds = new DataService ("PedometerApplication.db");
 
 		// データ設定
 		GameObject.Find("UserName").GetComponent<Text>().text = SaveData.GetUserData().username;
@@ -38,7 +43,13 @@ public class MainView : MonoBehaviour {
 
 		mainmenu.name = "menubutton";
 		// ペットボタン制御
+		wildPetDataList = ds.GetWildPetData ();
 		petButton = GameObject.Find ("PetButton");
+		if (wildPetDataList != null && 0 < wildPetDataList.Count) {
+			petButton.SetActive (true);
+		} else {
+			petButton.SetActive (false);
+		}
 		petPanel = GameObject.Find("PetPanel");
 		petPanel.SetActive (false);
 		// ペットの設定
@@ -75,6 +86,11 @@ public class MainView : MonoBehaviour {
 		petButton.SetActive(false);
 		// ゲット画面を表示
 		petPanel.SetActive(true);
+		// ランダムでペットをゲットする
+		List<PetData> wildPetDataList = ds.GetWildPetData ();
+		int rnd = Random.Range(0, wildPetDataList.Count);
+		newPetSprite = Resources.Load<Sprite> ("Image/ActRPGsprites/" + wildPetDataList[rnd].petmainimage);
+		GameObject.Find ("Pet").GetComponent<Image> ().sprite = newPetSprite;
 	}
 
 	// OKボタンタップ処理
@@ -89,24 +105,29 @@ public class MainView : MonoBehaviour {
 				break;
 			}
 		}
-		var ds = new DataService ("PedometerApplication.db");
+		// ペット情報登録
+		int newPetId = 0;
+		wildPetDataList = ds.GetWildPetData ();
+		foreach (PetData c in wildPetDataList) {
+			if (c.petmainimage.Equals (newPetSprite.name.Remove(newPetSprite.name.IndexOf("_")))) {
+				newPetId = c.petid;
+				break;
+			}
+		}
+		ds.UpdMyPetDataByPetId (newPetId);
+		SaveData.SetMyPetDataList (ds.GetAllMyPetData ());
 		if (gameObjectName != null) {
 			// 選択ペット登録
 			List<int> petIdList = new List<int> ();
 			foreach (SelPetJoinAllPetData c in SaveData.GetSelPetJoinAllPetDataList()) {
 				petIdList.Add (c.petid);
 			}
-			petIdList.Add (petIdList.Count + 1);
+			petIdList.Add (newPetId);
 			ds.DelInsSelectedPetData (petIdList);
 			SaveData.SetSelPetJoinAllPetDataList (ds.GetSelPetJoinAllPetData());
 			// 画面へのぺット追加
-			// TODO 実際はゲットしたぺット情報を追加する
 			this.AddPet (gameObjectName, SaveData.GetSelPetJoinAllPetDataList()[SaveData.GetSelPetJoinAllPetDataList().Count - 1]);
 		}
-		// ペット情報登録
-		// TODO 実際はゲットしたぺット情報をセーブする
-		ds.UpdMyPetDataByPetName ("ドクロ");
-		SaveData.SetMyPetDataList (ds.GetAllMyPetData ());
 	}
 
 	// 画面へのぺット追加処理
@@ -144,13 +165,13 @@ public class MainView : MonoBehaviour {
 	Vector3 getPosition(string petAnimationName){
 		Vector3 position;
 		if ("petAnimation0".Equals(petAnimationName)) {
-			position = new Vector3 (195.0f, 73.0f);
+			position = new Vector3 (195.0f, 80.0f);
 		} else if ("petAnimation1".Equals(petAnimationName)) {
-			position = new Vector3 (140.0f, 85.0f);
+			position = new Vector3 (140.0f, 92.0f);
 		} else if ("petAnimation2".Equals(petAnimationName)) {
-			position = new Vector3 (85.0f, 73.0f);
+			position = new Vector3 (85.0f, 80.0f);
 		} else {
-			position = new Vector3 (30.0f, 85.0f);
+			position = new Vector3 (30.0f, 92.0f);
 		}
 		return position;
 	}
@@ -158,8 +179,8 @@ public class MainView : MonoBehaviour {
 	// 背景の動き
 	void BackGroundAnimation () {
 		mainCamera.Translate (0.05f, 0, 0);
-		if (mainCamera.position.x > 22f ) {
-			mainCamera.position = new Vector3 (0, 2.2f, -13f);
+		if (mainCamera.position.x > 122f ) {
+			mainCamera.position = new Vector3 (100, 142.2f, -13f);
 		}
 	}
 

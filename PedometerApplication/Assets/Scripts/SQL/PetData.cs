@@ -4,6 +4,7 @@ public class PetData {
 	[PrimaryKey, AutoIncrement]
 	public int petid { get; set; }
 	public int getflag { get; set; }
+	public int goodsflag { get; set; }
 	public string petname { get; set; }
 	public int pettype { get; set; }
 	public string petdescription { get; set; }
@@ -22,9 +23,9 @@ public class PetData {
 
 	public override string ToString ()
 	{
-		return string.Format ("[PetData: petid={0}, getflag={1}, petname={2}, pettype={3}, petdescription={4}," +
-			" petmainimage={5}, petwalking1Image={6}, petwalking2Image={7}, petwalking3Image={8}, petwalking4Image={9}",
-			petid, getflag, petname, pettype, petdescription, petmainimage, petwalking1image, petwalking2image,
+		return string.Format ("[PetData: petid={0}, getflag={1}, goodsflag={2}, petname={3}, pettype={4}, petdescription={5}," +
+			" petmainimage={6}, petwalking1Image={7}, petwalking2Image={8}, petwalking3Image={9}, petwalking4Image={10}",
+			petid, getflag, goodsflag, petname, pettype, petdescription, petmainimage, petwalking1image, petwalking2image,
 			petwalking3image, petwalking4image);
 	}
 }

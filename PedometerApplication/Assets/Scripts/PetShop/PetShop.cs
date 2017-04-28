@@ -77,7 +77,8 @@ public class PetShop : MonoBehaviour {
 			var ds = new DataService ("PedometerApplication.db");
 			ds.UpdUserData (SaveData.GetUserData ().userid, SaveData.GetUserData().username,SaveData.GetUserData ().userlevel, pointCountInt,
 				SaveData.GetUserData ().todaywalkingcount, SaveData.GetUserData ().totalwalkingcount);
-			ds.UpdMyPetDataByPetName (petButton.FindChild ("PetName").GetComponent<Text> ().text);
+			SaveData.SetUserData (ds.GetUserData ());
+			ds.UpdMyPetDataByPetId (int.Parse(petButton.FindChild ("PetId").GetComponent<Text> ().text));
 			SaveData.SetMyPetDataList (ds.GetAllMyPetData ());
 			if (SaveData.GetSelPetJoinAllPetDataList ().Count < 4) {
 				// 選択ペット登録
@@ -85,7 +86,7 @@ public class PetShop : MonoBehaviour {
 				foreach (SelPetJoinAllPetData c in SaveData.GetSelPetJoinAllPetDataList()) {
 					petIdList.Add (c.petid);
 				}
-				petIdList.Add (petIdList.Count + 1);
+				petIdList.Add (int.Parse(petButton.FindChild ("PetId").GetComponent<Text> ().text));
 				ds.DelInsSelectedPetData (petIdList);
 				SaveData.SetSelPetJoinAllPetDataList (ds.GetSelPetJoinAllPetData());
 			}

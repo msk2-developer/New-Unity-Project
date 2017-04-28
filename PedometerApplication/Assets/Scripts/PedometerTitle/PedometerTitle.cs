@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PedometerTitle : MonoBehaviour {
 
@@ -29,7 +30,7 @@ public class PedometerTitle : MonoBehaviour {
 		if (SaveData.GetUserData() == null) {
 			userInputCanvas.enabled = true;
 		} else {
-			commonButtonScript.MainMenuScene ();
+			SceneManager.LoadScene("MainView");
 		}
 	}
 
@@ -39,14 +40,18 @@ public class PedometerTitle : MonoBehaviour {
 		// ユーザ名を入力した時、メイン画面に遷移する
 		if (userName != null && 0 < userName.Trim().Length) {
 			ds.DelInsUserData (userName);
+			SaveData.SetUserData(ds.GetUserData ());
+			// TODO テスト用にポイント付与
+			ds.UpdUserData (SaveData.GetUserData ().userid, SaveData.GetUserData().username,SaveData.GetUserData ().userlevel, 10000,
+				SaveData.GetUserData ().todaywalkingcount, SaveData.GetUserData ().totalwalkingcount);
+			SaveData.SetUserData (ds.GetUserData ());
 			ds.UpdMyPetDataByPetId (1);
+			SaveData.SetMyPetDataList (ds.GetAllMyPetData ());
 			List<int> petIdList = new List<int> ();
 			petIdList.Add (1);
 			ds.DelInsSelectedPetData (petIdList);
-			SaveData.SetUserData(ds.GetUserData ());
-			SaveData.SetMyPetDataList (ds.GetAllMyPetData ());
 			SaveData.SetSelPetJoinAllPetDataList (ds.GetSelPetJoinAllPetData ());
-			commonButtonScript.MainMenuScene ();
+			SceneManager.LoadScene("MainView");
 		}
 	}
 }

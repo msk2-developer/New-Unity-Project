@@ -94,6 +94,18 @@ public class DataService
 		return result;
 	}
 
+	// 野生の(所持しておらず、ショップに売っていない)ペット取得
+	public List<PetData> GetWildPetData ()
+	{
+		IEnumerable<PetData> petData = _connection.Table<PetData> ().Where (p => p.getflag == 0 && p.goodsflag == 0);
+		List<PetData> result = new List<PetData> ();
+		foreach (var c in petData) {
+			result.Add (c);
+		}
+
+		return result;
+	}
+
 	// ペット所持分取得
 	public List<PetData> GetAllMyPetData ()
 	{
@@ -171,7 +183,7 @@ public class DataService
 	}
 
 	// ユーザ情報更新
-		public void UpdUserData (int userId, string userName, int userLevel, int getPoint, int todayWalkingCount, int totalWalkingCount)
+	public void UpdUserData (int userId, string userName, int userLevel, int getPoint, int todayWalkingCount, int totalWalkingCount)
 	{
 		_connection.Update (new UserData { userid = userId, username = userName, userlevel = userLevel,
 			point = getPoint, todaywalkingcount = todayWalkingCount, totalwalkingcount = totalWalkingCount
