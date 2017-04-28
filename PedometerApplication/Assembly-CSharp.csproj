@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\SQL\DataService.cs" />
      <Compile Include="Assets\Scripts\SQL\PetData.cs" />
      <Compile Include="Assets\Scripts\SQL\SQLite.cs" />
+     <Compile Include="Assets\Scripts\SQL\SelPetJoinAllPetData.cs" />
      <Compile Include="Assets\Scripts\SQL\SelectedPetData.cs" />
      <Compile Include="Assets\Scripts\SQL\UserData.cs" />
      <Compile Include="Assets\Scripts\Shop\HoldPress.cs" />

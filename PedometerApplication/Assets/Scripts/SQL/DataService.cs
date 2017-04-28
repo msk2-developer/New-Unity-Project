@@ -83,48 +83,77 @@ public class DataService
 	//	}
 
 	// ペット全取得
-	public IEnumerable<PetData> GetAllPetData ()
+	public List<PetData> GetAllPetData ()
 	{
-		return _connection.Table<PetData> ();
+		IEnumerable<PetData> petData = _connection.Table<PetData> ();
+		List<PetData> result = new List<PetData> ();
+		foreach (var c in petData) {
+			result.Add (c);
+		}
+
+		return result;
 	}
 
 	// ペット所持分取得
-	public IEnumerable<PetData> GetAllMyPetData ()
+	public List<PetData> GetAllMyPetData ()
 	{
-		return _connection.Table<PetData> ().Where (petData => petData.getflag == 1);
+		IEnumerable<PetData> petData = _connection.Table<PetData> ().Where (p => p.getflag == 1);
+		List<PetData> result = new List<PetData> ();
+		foreach (var c in petData) {
+			result.Add (c);
+		}
+		return result;
 	}
 
-	// 取得ペット更新
-	public void UpdMyPetData (int petId, int getFlag)
+	// 取得ペット更新 (IDで)
+	public void UpdMyPetDataByPetId (int petId)
 	{
-		string sql = "UPDATE PetData SET getflag = ? WHERE petid = ?";
-		_connection.Query<PetData> (sql, new object[]{ getFlag, petId });
+		string sql = "UPDATE PetData SET getflag = 1 WHERE petid = ?";
+		_connection.Query<PetData> (sql, new object[]{ petId });
 	}
 
-	// 選択ペット取得
-	public IEnumerable<PetData> GetSelectedPetData ()
+	// 取得ペット更新 (ペット名で)
+	public void UpdMyPetDataByPetName (string petName)
+	{
+		string sql = "UPDATE PetData SET getflag = 1 WHERE petname = ?";
+		_connection.Query<PetData> (sql, new object[]{ petName });
+	}
+
+	// 選択ペット取得 (PetDataとJoin済)
+	public List<SelPetJoinAllPetData> GetSelPetJoinAllPetData ()
 	{
 		string sql = "SELECT * FROM PetData INNER JOIN SelectedPetData" +
-		             " ON PetData.petid = SelectedPetData.petid";
-		return _connection.Query<PetData> (sql, new object[0]);
+		             " ON PetData.petid = SelectedPetData.petid ORDER BY SelectedPetData.sortnum";
+		IEnumerable<SelPetJoinAllPetData> petData = _connection.Query<SelPetJoinAllPetData> (sql, new object[0]);
+		List<SelPetJoinAllPetData> result = new List<SelPetJoinAllPetData> ();
+		foreach (var c in petData) {
+			result.Add (c);
+		}
+		return result;
 	}
 
 	// 選択ペット登録
-	public void DelInsSelectedPetData (int[] petId)
+	public void DelInsSelectedPetData (List<int> petIdList)
 	{
 		_connection.DeleteAll<SelectedPetData> ();
-		for (int i = 0; i < petId.Length; i++) {
+		foreach (int c in petIdList) {
 			var selectedPetData = new SelectedPetData {
-				petid = petId [i]
+				petid = c
 			};
 			_connection.Insert (selectedPetData);
 		}
 	}
 
 	// ユーザ情報取得
-	public IEnumerable<UserData> GetUserData ()
+	public UserData GetUserData ()
 	{
-		return _connection.Table<UserData> ();
+		IEnumerable<UserData> userData = _connection.Table<UserData> ();
+		UserData result = null;
+		foreach (var c in userData) {
+			result = c;
+			break;
+		}
+		return result;
 	}
 
 	// ユーザ情報登録
@@ -133,7 +162,10 @@ public class DataService
 		_connection.DeleteAll<UserData> ();
 		var userData = new UserData {
 			username = userName,
-			userlevel = 1
+			userlevel = 1,
+			point = 0,
+			todaywalkingcount = 0,
+			totalwalkingcount = 0
 		};
 		_connection.Insert (userData);
 	}
@@ -150,5 +182,13 @@ public class DataService
 	public void DelUserData ()
 	{
 		_connection.DeleteAll<UserData> ();
+	}
+
+	// 選択ペット削除
+	public void DelSelectedPetData ()
+	{
+		_connection.DeleteAll<SelectedPetData> ();
+		string sql = "UPDATE PetData SET getflag = 0";
+		_connection.Query<PetData> (sql, new object[0]);
 	}
 }

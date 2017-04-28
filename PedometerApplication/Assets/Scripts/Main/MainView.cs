@@ -19,29 +19,26 @@ public class MainView : MonoBehaviour {
 	private GameObject petWalk3;
 	private GameObject petWalk4;
 
-	private Sprite[] petSprites;
 	private Canvas canvas;
 
 	// Use this for initialization
 	void Start () {
-		petSprites = Resources.LoadAll<Sprite> ("Image/ActRPGsprites/en");
 		canvas = GameObject.FindObjectOfType<Canvas> ();
 
 		// データ設定
-		GameObject.Find("UserName").GetComponent<Text>().text = SaveData.save.userName;
-		GameObject.Find("Level").GetComponent<Text>().text = SaveData.save.userLevel.ToString();
-		GameObject.Find("PointCount").GetComponent<Text>().text = SaveData.save.pointCount.ToString();
-		GameObject.Find("WalkingCount").GetComponent<Text>().text = SaveData.save.todayWalkingCount.ToString();
+		GameObject.Find("UserName").GetComponent<Text>().text = SaveData.GetUserData().username;
+		GameObject.Find("Level").GetComponent<Text>().text = SaveData.GetUserData().userlevel.ToString();
+		GameObject.Find("PointCount").GetComponent<Text>().text = SaveData.GetUserData().point.ToString();
+		GameObject.Find("WalkingCount").GetComponent<Text>().text = SaveData.GetUserData().todaywalkingcount.ToString();
 
 		// ペットボタン制御
 		petButton = GameObject.Find ("PetButton");
 		petPanel = GameObject.Find("PetPanel");
 		petPanel.SetActive (false);
 		// ペットの設定
-		for(int i = 0; i < SaveData.GetSelectPetCount();i++){
+		for(int i = 0; i < SaveData.GetSelPetJoinAllPetDataList().Count;i++){
 			// ぺット表示
-			this.AddPet ("petAnimation" + i, SaveData.GetWalking1Images()[i],
-				SaveData.GetWalking2Images()[i], SaveData.GetWalking3Images()[i], SaveData.GetWalking4Images()[i]);
+			this.AddPet ("petAnimation" + i, SaveData.GetSelPetJoinAllPetDataList()[i]);
 		}
 	}
 	
@@ -84,24 +81,28 @@ public class MainView : MonoBehaviour {
 				break;
 			}
 		}
+		var ds = new DataService ("PedometerApplication.db");
 		if (gameObjectName != null) {
-			// ぺット追加
+			// 選択ペット登録
+			List<int> petIdList = new List<int> ();
+			foreach (SelPetJoinAllPetData c in SaveData.GetSelPetJoinAllPetDataList()) {
+				petIdList.Add (c.petid);
+			}
+			petIdList.Add (petIdList.Count + 1);
+			ds.DelInsSelectedPetData (petIdList);
+			SaveData.SetSelPetJoinAllPetDataList (ds.GetSelPetJoinAllPetData());
+			// 画面へのぺット追加
 			// TODO 実際はゲットしたぺット情報を追加する
-			this.AddPet (gameObjectName, "en_115",
-				"en_116", "en_117", "en_118");
-			// セーブデータクラスに保持
-			SaveData.AddSelectPet ("ドクロ", "ただのドクロ", "en_106", "en_115", 
-				"en_116", "en_117", "en_118");
+			this.AddPet (gameObjectName, SaveData.GetSelPetJoinAllPetDataList()[SaveData.GetSelPetJoinAllPetDataList().Count - 1]);
 		}
-		// セーブ
+		// ペット情報登録
 		// TODO 実際はゲットしたぺット情報をセーブする
-		SaveData.save.AddPetData ("ドクロ", "ただのドクロ", "en_106", "en_115", 
-			"en_116", "en_117", "en_118");
+		ds.UpdMyPetDataByPetName ("ドクロ");
+		SaveData.SetMyPetDataList (ds.GetAllMyPetData ());
 	}
 
 	// 画面へのぺット追加処理
-	void AddPet(string petAnimationName, string walkingImage1,
-		string walkingImage2, string walkingImage3, string walkingImage4){
+	void AddPet(string petAnimationName, SelPetJoinAllPetData selPetJoinAllPetData){
 		// 表示位置取得
 		Vector3 position = this.getPosition (petAnimationName);
 		// ぺット作成
@@ -120,13 +121,14 @@ public class MainView : MonoBehaviour {
 		petWalk3.SetActive (false);
 		petWalk4.SetActive (true);
 		// 画像設定
-		Sprite walkingSprite = System.Array.Find<Sprite>( petSprites, (sprite) => sprite.name.Equals(walkingImage1));
+		Sprite[] petSprites = Resources.LoadAll<Sprite> ("Image/ActRPGsprites/" + selPetJoinAllPetData.petmainimage);
+		Sprite walkingSprite = System.Array.Find<Sprite>( petSprites, (sprite) => sprite.name.Equals(selPetJoinAllPetData.petwalking1image));
 		petWalk1.GetComponent<Image>().sprite = walkingSprite;
-		walkingSprite = System.Array.Find<Sprite>( petSprites, (sprite) => sprite.name.Equals(walkingImage2));
+		walkingSprite = System.Array.Find<Sprite>( petSprites, (sprite) => sprite.name.Equals(selPetJoinAllPetData.petwalking2image));
 		petWalk2.GetComponent<Image>().sprite = walkingSprite;
-		walkingSprite = System.Array.Find<Sprite>( petSprites, (sprite) => sprite.name.Equals(walkingImage3));
+		walkingSprite = System.Array.Find<Sprite>( petSprites, (sprite) => sprite.name.Equals(selPetJoinAllPetData.petwalking3image));
 		petWalk3.GetComponent<Image>().sprite = walkingSprite;
-		walkingSprite = System.Array.Find<Sprite>( petSprites, (sprite) => sprite.name.Equals(walkingImage4));
+		walkingSprite = System.Array.Find<Sprite>( petSprites, (sprite) => sprite.name.Equals(selPetJoinAllPetData.petwalking4image));
 		petWalk4.GetComponent<Image>().sprite = walkingSprite;
 	}
 

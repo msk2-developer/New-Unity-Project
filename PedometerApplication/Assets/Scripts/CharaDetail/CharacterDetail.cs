@@ -12,17 +12,11 @@ public class CharacterDetail : MonoBehaviour {
 	// メイン画面のペット
 	public Button petButton;
 
-	// 画像
-	private Sprite[] petSprites;
 	// 遷移用のボタンクラス
 	private CommonButtonScript commonButtonScript;
 
 	// Use this for initialization
 	void Start () {
-
-
-		// 画像読み込み
-		petSprites = Resources.LoadAll<Sprite> ("Image/ActRPGsprites/en");
 		// 登録用に遷移ボタンクラス取得
 		commonButtonScript = GameObject.Find("MenuBox").transform.GetComponent<CommonButtonScript> ();
 		// 入替画面オブジェクト取得
@@ -32,8 +26,10 @@ public class CharacterDetail : MonoBehaviour {
 		for (int i = 0; i < SaveData.GetMaxSelectPetCount(); i++) {
 			GameObject pet = GameObject.Find ("Pet" + i);
 			GameObject petListPet = GameObject.Find ("SelectPetPanel").transform.FindChild ("PetButton" + i).gameObject;
-			if (i < SaveData.GetSelectPetCount()) {
-				Sprite mainImageSprite = System.Array.Find<Sprite> (petSprites, (sprite) => sprite.name.Equals (SaveData.GetMainImages() [i]));
+			if (i < SaveData.GetSelPetJoinAllPetDataList().Count) {
+				// 画像読み込み
+				Sprite mainImageSprite = Resources.Load<Sprite> ("Image/ActRPGsprites/" + SaveData.GetSelPetJoinAllPetDataList()[i].petmainimage);
+//				Sprite mainImageSprite = System.Array.Find<Sprite> (petSprites, (sprite) => sprite.name.Equals (SaveData.GetSelPetJoinAllPetDataList()[i].petmainimage));
 				pet.GetComponent<Image> ().sprite = mainImageSprite;
 				petListPet.transform.FindChild("Image").GetComponent<Image> ().sprite = mainImageSprite;
 			} else {
@@ -43,53 +39,31 @@ public class CharacterDetail : MonoBehaviour {
 
 		// 入替画面全ペット表示
 		Transform petColPanelClone = petColPanel;
-		for (int i = 0; i < SaveData.save.petNames.Length; i++) {
-			if (i == 0 || i % 4 == 0) {
+		int count = 0;
+		foreach (PetData c in SaveData.GetMyPetDataList()) {
+			Debug.Log (c.ToString ());
+			if (count == 0 || count % 4 == 0) {
 				// ぺット作成
 				petColPanelClone = Instantiate (petColPanel, GameObject.Find ("Content").transform);
 				// Object名設定
-				petColPanelClone.name = "PetColPanel" + (i / 4);
+				petColPanelClone.name = "PetColPanel" + (count / 4);
 			}
-			Sprite mainImageSprite = System.Array.Find<Sprite> (petSprites, (sprite) => sprite.name.Equals (SaveData.save.mainImages [i]));
-			petColPanelClone.FindChild ("PetButton" + (i % 4)).FindChild ("Image").GetComponent<Image> ().sprite = mainImageSprite;
+			Sprite mainImageSprite = Resources.Load<Sprite> ("Image/ActRPGsprites/" + c.petmainimage);
+//			Sprite mainImageSprite = System.Array.Find<Sprite> (petSprites, (sprite) => sprite.name.Equals (c.petmainimage));
+			petColPanelClone.FindChild ("PetButton" + (count % 4)).FindChild ("Image").GetComponent<Image> ().sprite = mainImageSprite;
+			count++;
 		}
 		petListPanel.SetActive (false);
-
-//		// TODO テスト
-//		var ds = new DataService ("PedometerApplication.db");
-//		//ds.CreateDB ();
-//		var pets = ds.GetPets ();
-//		ToConsole (pets);
-//
-//		pets = ds.GetPetsNamedAaa ();
-//		ToConsole("Searching for aaa ...");
-//		ToConsole (pets);
-//
-//		ds.CreatePet ();
-//		ToConsole("New pet has been created");
-//		var p = ds.GetPets ();
-//		ToConsole(p);
-
-	}
-
-	private void ToConsole(IEnumerable<PetData> pets){
-		foreach (var pet in pets) {
-			ToConsole(pet.ToString());
-		}
-	}
-
-	private void ToConsole(string msg){
-		Debug.Log (msg);
 	}
 
 	// メイン画面のぺットタップ処理
 	public void PetTap (Button button) {
 		// ペット名、説明を切り替える
 		string mainImageName = button.GetComponent<Image> ().sprite.name;
-		for(int i = 0; i < SaveData.GetSelectPetCount(); i++){
-			if (mainImageName.Equals (SaveData.GetMainImages() [i])) {
-				GameObject.Find ("PetName").GetComponent<Text> ().text = SaveData.GetSelectPets()[i];
-				GameObject.Find ("Description").GetComponent<Text> ().text = SaveData.GetPetDescriptions() [i];
+		foreach(SelPetJoinAllPetData c in SaveData.GetSelPetJoinAllPetDataList()){
+			if (mainImageName.Equals (c.petmainimage)) {
+				GameObject.Find ("PetName").GetComponent<Text> ().text = c.petname;
+				GameObject.Find ("Description").GetComponent<Text> ().text = c.petdescription;
 			}
 		}
 	}
@@ -124,9 +98,10 @@ public class CharacterDetail : MonoBehaviour {
 		for (int i = 0; i < SaveData.GetMaxSelectPetCount(); i++) {
 			// 入れ替えたペットを戻す
 			GameObject petListPet = GameObject.Find ("SelectPetPanel").transform.FindChild ("PetButton" + i).gameObject;
-			if (i < SaveData.GetSelectPetCount()) {
-				Sprite mainImageSprite =
-					System.Array.Find<Sprite> (petSprites, (sprite) => sprite.name.Equals (SaveData.GetMainImages() [i]));
+			if (i < SaveData.GetSelPetJoinAllPetDataList().Count) {
+				Sprite mainImageSprite = Resources.Load<Sprite> ("Image/ActRPGsprites/" + SaveData.GetSelPetJoinAllPetDataList() [i].petmainimage);
+//				Sprite mainImageSprite =
+//					System.Array.Find<Sprite> (petSprites, (sprite) => sprite.name.Equals (SaveData.GetSelPetJoinAllPetDataList() [i].petmainimage));
 				petListPet.transform.FindChild ("Image").GetComponent<Image> ().sprite = mainImageSprite;
 			} else {
 				petListPet.transform.FindChild ("Image").GetComponent<Image> ().sprite = null;
@@ -144,41 +119,23 @@ public class CharacterDetail : MonoBehaviour {
 	// 入替画面の決定ボタンタップ処理
 	public void DecideButtonTap () {
 		// 選択したペットを登録し、メイン画面を再表示する
-		int childCount = 0;
-		List<string> selectPetsTmp = new List<string>();
-		List<string> petDescriptionsTmp = new List<string>();
-		List<string> mainImagesTmp = new List<string>();
-		List<string> walking1ImagesTmp = new List<string>();
-		List<string> walking2ImagesTmp = new List<string>();
-		List<string> walking3ImagesTmp = new List<string>();
-		List<string> walking4ImagesTmp = new List<string>();
+		List<int> petIdList = new List<int>();
 		foreach (Transform child in GameObject.Find("SelectPetPanel").transform) {
 			if (child.FindChild ("Image").GetComponent<Image> ().sprite != null) {
 				// メイン画像セット
-				mainImagesTmp.Add (child.FindChild ("Image").GetComponent<Image> ().sprite.name);
-				// 全メイン画像と突合し、その他情報もセットする
-				for (int i = 0; i < SaveData.save.mainImages.Length; i++) {
-					if (mainImagesTmp [childCount].Equals (SaveData.save.mainImages [i])) {
-						selectPetsTmp.Add (SaveData.save.petNames [i]);
-						petDescriptionsTmp.Add (SaveData.save.petDescriptions [i]);
-						walking1ImagesTmp.Add (SaveData.save.walking1Images [i]);
-						walking2ImagesTmp.Add (SaveData.save.walking2Images [i]);
-						walking3ImagesTmp.Add (SaveData.save.walking3Images [i]);
-						walking4ImagesTmp.Add (SaveData.save.walking4Images [i]);
+				string petMainImage = child.FindChild ("Image").GetComponent<Image> ().sprite.name;
+				petMainImage = petMainImage.Remove(petMainImage.IndexOf('_'));
+				// その他情報もセットする
+				foreach (PetData c in SaveData.GetMyPetDataList()) {
+					if (petMainImage.Equals (c.petmainimage)) {
+						petIdList.Add (c.petid);
 					}
 				}
 			}
-			childCount++;
 		}
-		SaveData.SetSelectPetCount (selectPetsTmp.Count);
-		SaveData.SetSelectPets (selectPetsTmp);
-		SaveData.SetPetDescriptions (petDescriptionsTmp);
-		SaveData.SetMainImages (mainImagesTmp);
-		SaveData.SetWalking1Images (walking1ImagesTmp);
-		SaveData.SetWalking2Images (walking2ImagesTmp);
-		SaveData.SetWalking3Images (walking3ImagesTmp);
-		SaveData.SetWalking4Images (walking4ImagesTmp);
-		SaveData.save.ChangeSelectPetsData (SaveData.GetSelectPets().ToArray());
+		var ds = new DataService ("PedometerApplication.db");
+		ds.DelInsSelectedPetData (petIdList);
+		SaveData.SetSelPetJoinAllPetDataList (ds.GetSelPetJoinAllPetData ());
 		commonButtonScript.CharacterScene ();
 	}
 }

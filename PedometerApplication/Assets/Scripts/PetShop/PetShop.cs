@@ -16,10 +16,10 @@ public class PetShop : MonoBehaviour {
 		pointCount = GameObject.Find ("PointCount");
 
 		// データ設定
-		pointCount.GetComponent<Text>().text = SaveData.save.pointCount.ToString();
+		pointCount.GetComponent<Text>().text = SaveData.GetUserData().point.ToString();
 		foreach (Transform child in GameObject.Find("WeaponShop").transform){
-			for (int i = 0; i < SaveData.save.petCount; i++) {
-				if (child.FindChild ("PetName").GetComponent<Text> ().text.Equals (SaveData.save.petNames[i])) {
+			foreach (PetData petData in SaveData.GetMyPetDataList()) {
+				if (child.FindChild ("PetName").GetComponent<Text> ().text.Equals (petData.petname)) {
 					child.FindChild ("CostValue").GetComponent<Text> ().text = "購入済";
 				}
 			}
@@ -74,15 +74,21 @@ public class PetShop : MonoBehaviour {
 		} else {
 			pointCountText.text = pointCountInt.ToString ();
 			petPointCountText.text = "購入済";
-			SaveData.save.AddPointCountData (pointCountText.text);
-			SaveData.AddSelectPet (petButton.FindChild ("PetName").GetComponent<Text> ().text,
-				"色々なペットの説明",
-				petButton.FindChild ("PetImage").GetComponent<Image> ().sprite.name,
-				"en_115", "en_116", "en_117", "en_118");
-			SaveData.save.AddPetData (petButton.FindChild ("PetName").GetComponent<Text> ().text,
-				"色々なペットの説明",
-				petButton.FindChild ("PetImage").GetComponent<Image> ().sprite.name,
-				"en_115", "en_116", "en_117", "en_118");
+			var ds = new DataService ("PedometerApplication.db");
+			ds.UpdUserData (SaveData.GetUserData ().userid, SaveData.GetUserData ().userlevel, pointCountInt,
+				SaveData.GetUserData ().todaywalkingcount, SaveData.GetUserData ().totalwalkingcount);
+			ds.UpdMyPetDataByPetName (petButton.FindChild ("PetName").GetComponent<Text> ().text);
+			SaveData.SetMyPetDataList (ds.GetAllMyPetData ());
+			if (SaveData.GetSelPetJoinAllPetDataList ().Count < 4) {
+				// 選択ペット登録
+				List<int> petIdList = new List<int> ();
+				foreach (SelPetJoinAllPetData c in SaveData.GetSelPetJoinAllPetDataList()) {
+					petIdList.Add (c.petid);
+				}
+				petIdList.Add (petIdList.Count + 1);
+				ds.DelInsSelectedPetData (petIdList);
+				SaveData.SetSelPetJoinAllPetDataList (ds.GetSelPetJoinAllPetData());
+			}
 		}
 		// Canvas を無効にする。(ダイアログを閉じる)
 		buyCanvas.enabled = false;

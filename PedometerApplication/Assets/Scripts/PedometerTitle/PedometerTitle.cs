@@ -9,12 +9,16 @@ public class PedometerTitle : MonoBehaviour {
 
 	private Save save;
 	private CommonButtonScript commonButtonScript;
+	private DataService ds;
 
 	// Use this for initialization
 	void Start () {
-		save = GameObject.Find("Canvas").transform.GetComponent<Save> ();
+		ds = new DataService ("PedometerApplication.db");
+//		save = GameObject.Find("Canvas").transform.GetComponent<Save> ();
 		commonButtonScript = GameObject.Find("Canvas").transform.GetComponent<CommonButtonScript> ();
-		save.DeleteData ();
+//		save.DeleteData ();
+		ds.DelUserData();
+		ds.DelSelectedPetData ();
 	}
 
 	// Update is called once per frame
@@ -25,7 +29,7 @@ public class PedometerTitle : MonoBehaviour {
 	// ログイン処理
 	public void StartTap () {
 		// ユーザ登録がされていない場合、登録ダイアログを表示する
-		if (save.userName == null || save.userName.Trim().Length <= 0) {
+		if (SaveData.GetUserData() == null) {
 			userInputCanvas.enabled = true;
 		} else {
 			commonButtonScript.MainMenuScene ();
@@ -37,29 +41,15 @@ public class PedometerTitle : MonoBehaviour {
 		string userName = GameObject.Find ("InputField").GetComponent<InputField> ().text;
 		// ユーザ名を入力した時、メイン画面に遷移する
 		if (userName != null && 0 < userName.Trim().Length) {
-			var ds = new DataService ("PedometerApplication.db");
 			ds.DelInsUserData (userName);
-			ds.UpdMyPetData (1, 1);
-			ds.DelInsSelectedPetData (new int[]{ 1 });
-			var pets = ds.GetSelectedPetData ();
-					ToConsole (pets);
-			save.AddUserData (userName);
-			save.AdduserLevelData ("1");
-			save.AddPointCountData ("10000");
-			save.AddPetData("スライム", "ただのスライム", "en_15", "en_14", "en_15", "en_16", "en_17");
-			commonButtonScript.MainMenuScene ();
-			SaveData.AddSelectPet("スライム", "ただのスライム", "en_15", "en_14", "en_15", "en_16", "en_17");
+			ds.UpdMyPetDataByPetId (1);
+			List<int> petIdList = new List<int> ();
+			petIdList.Add (1);
+			ds.DelInsSelectedPetData (petIdList);
+			SaveData.SetUserData(ds.GetUserData ());
+			SaveData.SetMyPetDataList (ds.GetAllMyPetData ());
+			SaveData.SetSelPetJoinAllPetDataList (ds.GetSelPetJoinAllPetData ());
 			commonButtonScript.MainMenuScene ();
 		}
-	}
-
-	private void ToConsole(IEnumerable<PetData> pets){
-		foreach (var pet in pets) {
-			ToConsole(pet.ToString());
-		}
-	}
-
-	private void ToConsole(string msg){
-		Debug.Log (msg);
 	}
 }
