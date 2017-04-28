@@ -75,7 +75,7 @@ public class PetShop : MonoBehaviour {
 			pointCountText.text = pointCountInt.ToString ();
 			petPointCountText.text = "購入済";
 			var ds = new DataService ("PedometerApplication.db");
-			ds.UpdUserData (SaveData.GetUserData ().userid, SaveData.GetUserData ().userlevel, pointCountInt,
+			ds.UpdUserData (SaveData.GetUserData ().userid, SaveData.GetUserData().username,SaveData.GetUserData ().userlevel, pointCountInt,
 				SaveData.GetUserData ().todaywalkingcount, SaveData.GetUserData ().totalwalkingcount);
 			ds.UpdMyPetDataByPetName (petButton.FindChild ("PetName").GetComponent<Text> ().text);
 			SaveData.SetMyPetDataList (ds.GetAllMyPetData ());

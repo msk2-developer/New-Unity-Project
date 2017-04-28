@@ -18,12 +18,25 @@ extern "C" {
     
     int _ex_returnval() {
         int retval;
-        retval = (int)[TestExample returnvalue];
+        retval = [TestExample returnvalue];
         return retval;
     }
     int _ex_HistPedometer() {
         int retvalue;
         retvalue = [TestExample callHist];
         return retvalue;
+    }
+    
+    const char* _ex_TodayStart() {
+        
+        NSString *dateString = [TestExample toDayStartTimes];
+        
+        const char* retrunDate = (char *) [dateString UTF8String];
+        NSLog(@"ちょっと変換後 %s", retrunDate);
+        char* retStr = (char*)malloc(strlen(retrunDate) + 1);
+        
+        strcpy(retStr, retrunDate);
+        NSLog(@"色々変換後 %s",retStr);
+        return retStr;
     }
 }

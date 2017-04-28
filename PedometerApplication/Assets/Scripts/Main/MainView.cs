@@ -21,6 +21,8 @@ public class MainView : MonoBehaviour {
 
 	private Canvas canvas;
 
+	private GameObject mainmenu;
+
 	// Use this for initialization
 	void Start () {
 		canvas = GameObject.FindObjectOfType<Canvas> ();
@@ -31,6 +33,10 @@ public class MainView : MonoBehaviour {
 		GameObject.Find("PointCount").GetComponent<Text>().text = SaveData.GetUserData().point.ToString();
 		GameObject.Find("WalkingCount").GetComponent<Text>().text = SaveData.GetUserData().todaywalkingcount.ToString();
 
+		// メニューバーのメインメニューボタンの名称変更
+		mainmenu = GameObject.Find("MainMenu");
+
+		mainmenu.name = "menubutton";
 		// ペットボタン制御
 		petButton = GameObject.Find ("PetButton");
 		petPanel = GameObject.Find("PetPanel");
@@ -40,6 +46,8 @@ public class MainView : MonoBehaviour {
 			// ぺット表示
 			this.AddPet ("petAnimation" + i, SaveData.GetSelPetJoinAllPetDataList()[i]);
 		}
+		// 今日の歩数を取得
+		Example.ShowHistry ();
 	}
 	
 	// Update is called once per frame

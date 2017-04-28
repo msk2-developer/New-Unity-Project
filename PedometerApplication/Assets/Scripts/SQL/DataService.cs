@@ -171,9 +171,9 @@ public class DataService
 	}
 
 	// ユーザ情報更新
-	public void UpdUserData (int userId, int userLevel, int getPoint, int todayWalkingCount, int totalWalkingCount)
+		public void UpdUserData (int userId, string userName, int userLevel, int getPoint, int todayWalkingCount, int totalWalkingCount)
 	{
-		_connection.Update (new UserData { userid = userId, userlevel = userLevel,
+		_connection.Update (new UserData { userid = userId, username = userName, userlevel = userLevel,
 			point = getPoint, todaywalkingcount = todayWalkingCount, totalwalkingcount = totalWalkingCount
 		});
 	}

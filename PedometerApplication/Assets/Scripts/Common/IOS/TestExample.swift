@@ -32,7 +32,6 @@ class TestExample: UIViewController {
                 })
             }
         }
-        
     }
     //歩数セッター
     private func setPedoresult(pedoresult :Int) {
@@ -76,7 +75,6 @@ class TestExample: UIViewController {
         return returnvalue
     }
     
-    
     /**
      歩数計に関する１日分の情報を返します。
      :returns: 歩数計に関する情報
@@ -99,18 +97,19 @@ class TestExample: UIViewController {
         
         pedometer.queryPedometerData(from: from as Date, to: to as Date, withHandler: {(data, error) in
             result = Int((data?.numberOfSteps)!);
-            //                "distance"+pedometerData.distance! +
-            //                "floorsAscended"+ pedometerData.floorsAscended! +
-            //                "floorsDescended"+ pedometerData.floorsDescended! +
-            //                "startDate"+ pedometerData.startDate +
-            //                "endDate"+ pedometerData.endDate
+            //いろんなデータ
+            // "distance"+pedometerData.distance! +
+            // "floorsAscended"+ pedometerData.floorsAscended! +
+            // "floorsDescended"+ pedometerData.floorsDescended! +
+            // "startDate"+ pedometerData.startDate +
+            // "endDate"+ pedometerData.endDate
             semaphore.signal()
         })
         semaphore.wait()
         
         from = self.dateByAddingDay(date: from, day: -1)
         to = self.dateByAddingDay(date: to, day: -1)
-        
+        print(result);
         return result
     }
     
@@ -140,5 +139,19 @@ class TestExample: UIViewController {
         let components:NSDateComponents = NSDateComponents()
         components.day = day
         return calendar.date(byAdding: components as DateComponents, to: date as Date) as NSDate!
+    }
+    
+    /**
+     開始した日付を取得
+     */
+    static func toDayStartTimes() -> NSString{
+        let now = NSDate() // 現在日時の取得
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US") as Locale! as Locale! // ロケールの設定
+        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss" // 日付フォーマットの設定
+        print(dateFormatter.string(from: now as Date))
+        
+        return dateFormatter.string(from: now as Date) as NSString
+        
     }
 }
