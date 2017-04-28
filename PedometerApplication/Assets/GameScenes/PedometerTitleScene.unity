@@ -193,7 +193,6 @@ GameObject:
   - component: {fileID: 169831376}
   - component: {fileID: 169831375}
   - component: {fileID: 169831374}
-  - component: {fileID: 169831381}
   - component: {fileID: 169831378}
   - component: {fileID: 169831379}
   - component: {fileID: 169831382}
@@ -305,32 +304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee9b37d21b13b498c8096967058fc6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &169831381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 169831373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ca2617b4e67049a69142cceddb02cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  userName: 
-  userLevel: 0
-  pointCount: 0
-  todayWalkingCount: 0
-  totalWalkingCount: 0
-  petCount: 0
-  selectPets: []
-  petNames: []
-  petTypes: []
-  petDescriptions: []
-  mainImages: []
-  walking1Images: []
-  walking2Images: []
-  walking3Images: []
-  walking4Images: []
 --- !u!114 &169831382
 MonoBehaviour:
   m_ObjectHideFlags: 0

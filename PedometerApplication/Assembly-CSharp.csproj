@@ -51,7 +51,6 @@
      <Compile Include="Assets\Scripts\Common\CommonButtonScript.cs" />
      <Compile Include="Assets\Scripts\Common\Example.cs" />
      <Compile Include="Assets\Scripts\Common\Help.cs" />
-     <Compile Include="Assets\Scripts\Common\Save.cs" />
      <Compile Include="Assets\Scripts\Common\SaveData.cs" />
      <Compile Include="Assets\Scripts\Common\Test.cs" />
      <Compile Include="Assets\Scripts\Info\InfoButtonScript.cs" />

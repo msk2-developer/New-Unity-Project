@@ -7,16 +7,13 @@ public class PedometerTitle : MonoBehaviour {
 
 	public Canvas userInputCanvas;
 
-	private Save save;
 	private CommonButtonScript commonButtonScript;
 	private DataService ds;
 
 	// Use this for initialization
 	void Start () {
 		ds = new DataService ("PedometerApplication.db");
-//		save = GameObject.Find("Canvas").transform.GetComponent<Save> ();
 		commonButtonScript = GameObject.Find("Canvas").transform.GetComponent<CommonButtonScript> ();
-//		save.DeleteData ();
 		ds.DelUserData();
 		ds.DelSelectedPetData ();
 	}

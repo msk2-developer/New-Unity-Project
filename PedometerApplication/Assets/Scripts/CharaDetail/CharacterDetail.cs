@@ -29,7 +29,6 @@ public class CharacterDetail : MonoBehaviour {
 			if (i < SaveData.GetSelPetJoinAllPetDataList().Count) {
 				// 画像読み込み
 				Sprite mainImageSprite = Resources.Load<Sprite> ("Image/ActRPGsprites/" + SaveData.GetSelPetJoinAllPetDataList()[i].petmainimage);
-//				Sprite mainImageSprite = System.Array.Find<Sprite> (petSprites, (sprite) => sprite.name.Equals (SaveData.GetSelPetJoinAllPetDataList()[i].petmainimage));
 				pet.GetComponent<Image> ().sprite = mainImageSprite;
 				petListPet.transform.FindChild("Image").GetComponent<Image> ().sprite = mainImageSprite;
 			} else {
@@ -49,7 +48,6 @@ public class CharacterDetail : MonoBehaviour {
 				petColPanelClone.name = "PetColPanel" + (count / 4);
 			}
 			Sprite mainImageSprite = Resources.Load<Sprite> ("Image/ActRPGsprites/" + c.petmainimage);
-//			Sprite mainImageSprite = System.Array.Find<Sprite> (petSprites, (sprite) => sprite.name.Equals (c.petmainimage));
 			petColPanelClone.FindChild ("PetButton" + (count % 4)).FindChild ("Image").GetComponent<Image> ().sprite = mainImageSprite;
 			count++;
 		}
@@ -100,8 +98,6 @@ public class CharacterDetail : MonoBehaviour {
 			GameObject petListPet = GameObject.Find ("SelectPetPanel").transform.FindChild ("PetButton" + i).gameObject;
 			if (i < SaveData.GetSelPetJoinAllPetDataList().Count) {
 				Sprite mainImageSprite = Resources.Load<Sprite> ("Image/ActRPGsprites/" + SaveData.GetSelPetJoinAllPetDataList() [i].petmainimage);
-//				Sprite mainImageSprite =
-//					System.Array.Find<Sprite> (petSprites, (sprite) => sprite.name.Equals (SaveData.GetSelPetJoinAllPetDataList() [i].petmainimage));
 				petListPet.transform.FindChild ("Image").GetComponent<Image> ().sprite = mainImageSprite;
 			} else {
 				petListPet.transform.FindChild ("Image").GetComponent<Image> ().sprite = null;
