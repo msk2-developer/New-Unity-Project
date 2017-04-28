@@ -1,15 +1,9 @@
 fileFormatVersion: 2
-guid: d556cb14c6f694cd1a9d2320646c15b2
-timeCreated: 1493169493
+guid: c16daf1d579b7493cb9579efb275c5ab
+timeCreated: 1493351497
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: en5_0
-    21300002: en5_1
-    21300004: en5_2
-    21300006: en5_3
-    21300008: en5_4
-    21300010: en5_5
+  fileIDToRecycleName: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -40,7 +34,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -64,111 +58,9 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: Standalone
-    maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-  - buildTarget: iPhone
-    maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-  - buildTarget: Android
-    maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: en5_0
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 7
-        width: 28
-        height: 12
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: en5_1
-      rect:
-        serializedVersion: 2
-        x: 54
-        y: 7
-        width: 26
-        height: 16
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: en5_2
-      rect:
-        serializedVersion: 2
-        x: 105
-        y: 7
-        width: 20
-        height: 22
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: en5_3
-      rect:
-        serializedVersion: 2
-        x: 155
-        y: 7
-        width: 16
-        height: 27
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: en5_4
-      rect:
-        serializedVersion: 2
-        x: 201
-        y: 7
-        width: 20
-        height: 22
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: en5_5
-      rect:
-        serializedVersion: 2
-        x: 246
-        y: 7
-        width: 26
-        height: 16
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
   spritePackingTag: 
   userData: 
