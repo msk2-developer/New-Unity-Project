@@ -59,7 +59,7 @@ public class CharacterDetail : MonoBehaviour {
 		// ペット名、説明を切り替える
 		string mainImageName = button.GetComponent<Image> ().sprite.name;
 		foreach(SelPetJoinAllPetData c in SaveData.GetSelPetJoinAllPetDataList()){
-			if (mainImageName.Equals (c.petmainimage)) {
+			if (mainImageName.Remove(mainImageName.IndexOf("_")).Equals (c.petmainimage)) {
 				GameObject.Find ("PetName").GetComponent<Text> ().text = c.petname;
 				GameObject.Find ("Description").GetComponent<Text> ().text = c.petdescription;
 			}
